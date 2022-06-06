@@ -1,0 +1,38 @@
+.group-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+.group-title{
+    font-weight: bold;
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 2px;
+   margin-right: 10px;
+}
+link{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    padding-right: 40px;
+    text-align: right;    
+}
+button{
+
+    padding : 10px 20px;
+    color:black;
+    cursor:pointer;
+    font-size: 16px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border-color: #FFD7D7;
+    background-color: #FFD7D7;
+}
