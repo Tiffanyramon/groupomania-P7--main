@@ -15,12 +15,30 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Layout from '../layouts/layout';
 
-<div>
+/*function description(){
+  const title = 'Bienvenue';
+}
+
+
+  <Layout>
+{ <div> }
 <h1>Bienvenue, sur votre réseau soial d'entreprise</h1>
+
 <h2>Écrivez, partagez, étabilissez des liens</h2>
 
+<Link to={"/login"}>
+  <button> connexion </button>
+</Link>
+
+<Link to={"/inscription"}> 
+ <button> inscription </button>
+ </Link> 
 </div>
+</Layout> */
+
+
  
 
 
@@ -37,7 +55,9 @@ function App() {
       </Routes>
    </BrowserRouter>
   )
-
 }
+
+
+
 
 export default App;

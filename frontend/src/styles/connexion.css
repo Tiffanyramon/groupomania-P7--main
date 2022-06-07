@@ -1,3 +1,30 @@
+@media screen and (max-width: 750px){
+  .drop-1{
+    top: -7px!important;
+  }
+
+  .drop-2{
+    right: 0px!important;
+  }
+
+  .drop-3{
+    right: 8px!important;
+  }
+
+  .drop-6{
+    z-index: -1!important;
+  }
+
+  .group-title{
+    margin-left: 5px!important; 
+  }
+
+  button{
+    margin-right: 20px!important;
+    margin-left: 10px!important;
+  }
+
+}
 * {
     margin:0;
     padding:0;

@@ -11,7 +11,7 @@ exports.signUp = (req, res, next) => {
     const password = req.body.password 
     bcrypt.hash(req.body.password, 10)
     .then(hash =>{ 
-        db.query("insert into user set  nom =?, prenom =?, email =?, password= ?",[email,hash],function (err, result){
+        db.query("insert into user set  nom =?, prenom =?, email =?, password= ?",[nom,prenom,email,hash],function (err, result){
             if (err) {
                 console.log(err)
                 return res.status (400).json ({error:'creation de compte impossible'})

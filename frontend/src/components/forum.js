@@ -36,8 +36,9 @@ function Forum(){
                                 <label htmlFor="">exprimez-vous...</label>
                                 <input type="text"{...register('message')} />
                              </div>
-                             <button>
-                                                 Puliez </button>   
+                             <button onClick={publiez}>
+                                    publiez </button> 
+                                          
                                 </form> 
                 
                     </div>
@@ -46,6 +47,7 @@ function Forum(){
                    return(
                        <div>
                            {article.message} 
+                           <imput type="text"{...register('message')} />
                        </div>
                    )
                })}
