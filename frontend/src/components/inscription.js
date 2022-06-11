@@ -33,19 +33,19 @@ function Inscription(){
                 < div className="formulairedeux">
                     <form onSubmit= {handleSubmit(onSubmit)} action="" method="post">
                         <h1>Inscription</h1>
-                        <div>
+                        <div className="ligne2">
                             <label htmlFor="">nom</label>
                             <input type="text" {...register('nom')}/>
                         </div>
-                        <div>
+                        <div className="ligne2">
                             <label htmlFor="">prénom</label>
                             <input type="text"{...register('prenom')}/>
                         </div>
-                        <div>
+                        <div className="ligne2">
                             <label htmlFor="">email</label>
                             <input type="email" {...register('email')} />
                         </div>
-                        <div>
+                        <div className="ligne2">
                             <label htmlFor="">mot de passe</label>
                             <input type="password" {...register('password')} />
                         </div>
@@ -67,8 +67,24 @@ function Inscription(){
       
     )
    
-    
-  
 }
+//Texte valide sans chiffre
+function validateText(value) {
+    if(value.match(/^([^0-9]*)$/)) {
+        return true
+    }
+    return false
+}
+
+//mail valide si @
+function validateEmail(value) {
+    if(value.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi)) {
+        return true;
+    }
+    return false;
+}
+
+
+
 
 export default Inscription

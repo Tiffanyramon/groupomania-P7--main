@@ -18,9 +18,6 @@ router.get('/:id', user,commentairectrl.getOneCommentaire);
 //route modification commentaire
 router.put('/:id', user,commentairectrl.modifyCommentaire);
 
-//route aime ou non commentaire 
-//router.post('/:id/like', user, commentairectrl.likeNotCommentaire);
-
 //suppression commentaire
 router.delete('/:id', user, commentairectrl.deleteCommentaire);
 

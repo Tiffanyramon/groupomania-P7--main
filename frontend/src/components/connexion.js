@@ -2,7 +2,9 @@ import '../styles/connexion.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../layouts/layoutun';
-import {useNavigate } from 'react-router-dom';
+import {Link,useNavigate } from 'react-router-dom';
+import { useEffect} from 'react';
+
 
 function Connexion(){
     
@@ -39,7 +41,10 @@ function Connexion(){
                  <button>connexion</button>
                 
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post"></form>
-                 <a>Nouveau? <button>Inscrivez-vous!</button></a>
+                  
+                     <Link to={"/inscription"}>
+                     <a>Nouveau?<button>Inscrivez-vous!</button></a>
+                     </Link>
                  </form>
              </div>
 

@@ -15,7 +15,7 @@ function Forum(){
             setUser(result.data.user)
         })
         axios.get("http://localhost:3001/api/article")
-        .then((result) =>{ console.log(result.data)
+        .then((result) =>{ 
          setArticles(result.data.articles)
         })
         .catch((error)  => console.log(error))
@@ -35,7 +35,7 @@ function Forum(){
         return (
             <Layout>
     
-                <div>
+                <div className="partage">
                     < div className="exprime">
                         <form onSubmit= {handleSubmit(onSubmit)} >
                             
@@ -51,10 +51,11 @@ function Forum(){
                 </div>
                {articles.map(article=>{
                    return(
-                       <div>
-                           {article.message}-{article.nom}-{article.prenom}
-                          
+                   
+                       <div  className='message'>
+                           {article.nom}-{article.prenom}-{article.message}
                        </div>
+                       
                    )
                })}
             </Layout>

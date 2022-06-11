@@ -25,6 +25,10 @@ function Header(){
                   <button> inscription </button>
               </Link> 
 
+              <Link to={"/compte"}>
+              <button> compte </button>
+              </Link>
+
                 <button onClick={deconnexion}>
                      deconnexion </button>     
           </div>
