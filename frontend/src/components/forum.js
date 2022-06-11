@@ -7,37 +7,43 @@ import { useEffect, useState } from 'react';
 
 function Forum(){
         const [articles, setArticles] = useState([])
+        const [user, setUser] = useState()
         const navigate = useNavigate()
     useEffect(()=>{
+        axios.get("http://localhost:3001/api/user")
+        .then((result) => {
+            setUser(result.data.user)
+        })
         axios.get("http://localhost:3001/api/article")
-        .then((result) =>{
+        .then((result) =>{ console.log(result.data)
          setArticles(result.data.articles)
         })
         .catch((error)  => console.log(error))
-    })
+    },[])
         const { register, handleSubmit } = useForm();
    
-        const onSubmit = (data) => {
-            axios.post("http://localhost:3001/api/article", data)
+        const onSubmit = (data) => { 
+            
+        
+            axios.post("http://localhost:3001/api/article", {...data,userid:user.id})
             .then((result) => {
-                localStorage.token = result.data.token
-                navigate("/forum")
+             window.location.reload()
             })
             .catch((error) => console.log(error))
         }
+      
         return (
             <Layout>
     
                 <div>
                     < div className="exprime">
-                        <form onSubmit= {handleSubmit(onSubmit)} action="" method="post">
+                        <form onSubmit= {handleSubmit(onSubmit)} >
                             
                             <div>
                                 <label htmlFor="">exprimez-vous...</label>
                                 <input type="text"{...register('message')} />
                              </div>
-                             <button onClick={publiez}>
-                                    publiez </button> 
+                             <button> publiez </button> 
                                           
                                 </form> 
                 
@@ -46,8 +52,8 @@ function Forum(){
                {articles.map(article=>{
                    return(
                        <div>
-                           {article.message} 
-                           <imput type="text"{...register('message')} />
+                           {article.message}-{article.nom}-{article.prenom}
+                          
                        </div>
                    )
                })}

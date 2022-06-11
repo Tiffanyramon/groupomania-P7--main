@@ -17,7 +17,7 @@ function Inscription(){
             .then((result) =>{
                 localStorage.token = result.data.token
                 axios.defaults.headers.common.Authorization = "Bearer " + result.data.token
-                navigate("/forum")    
+                navigate("/")    
             }
             
             )

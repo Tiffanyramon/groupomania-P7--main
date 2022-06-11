@@ -17,29 +17,6 @@ import {
 } from "react-router-dom";
 import Layout from '../layouts/layout';
 
-/*function description(){
-  const title = 'Bienvenue';
-}
-
-
-  <Layout>
-{ <div> }
-<h1>Bienvenue, sur votre réseau soial d'entreprise</h1>
-
-<h2>Écrivez, partagez, étabilissez des liens</h2>
-
-<Link to={"/login"}>
-  <button> connexion </button>
-</Link>
-
-<Link to={"/inscription"}> 
- <button> inscription </button>
- </Link> 
-</div>
-</Layout> */
-
-
- 
 
 
 
@@ -48,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/forum" element={<Forum/>} />
+        <Route path="/" element={<Forum/>} />
         <Route path="/login" element={<Connexion/>} />
         <Route path="/inscription" element={<Inscription/>} />
         <Route path="/compte" element={<Compte/>} />

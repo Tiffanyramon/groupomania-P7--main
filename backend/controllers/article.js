@@ -1,9 +1,10 @@
 const db = require('../database/db.js');
 //créa article
-exports.createArticle = (req, res, next) => {
+exports.createArticle = (req, res, next) => { 
     const message = req.body.message
     const imageurl = req.body.imageurl
-  db.query("insert into article set message=?, imageurl=?",[ message, imageurl],function(err,result){
+    const userid = req.body.userid
+  db.query("insert into article set userid=?, message=?, imageurl=?",[userid, message, imageurl],function(err,result){
    if(err){
      console.log(err)
      return res.status(400).json({ error:"impossible de creer l'article"})
@@ -14,7 +15,7 @@ exports.createArticle = (req, res, next) => {
 
 //obtenir les articles
 exports.getAllArticle = (req, res, next) => {
-  db.query(" select * from article inner join user on user.id = article.userid", function(err,result){
+  db.query(" select * from article inner join user on user.id = article.userid ", function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir les articles"})

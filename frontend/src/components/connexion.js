@@ -16,7 +16,7 @@ function Connexion(){
         .then((result) => {
             localStorage.token =result.data.token
             axios.defaults.headers.common.Authorization = "Bearer " + result.data.token
-            navigate("/forum")
+            navigate("/")
         })
         .catch((error) => console.log(error))
     }
@@ -28,11 +28,11 @@ function Connexion(){
              <div className="formulaire">
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post">
                  <h1>Connexion</h1>
-                 <div>
+                 <div className="ligne">
                      <label htmlFor="">email</label>
                      <input type="email" {...register('email')} />
                  </div>
-                 <div>
+                 <div className="ligne">
                      <label htmlFor="">mot de passe</label>
                      <input type="password" {...register('password')} />
                  </div>

@@ -9,6 +9,8 @@ const db = require('../database/db.js');
 exports.signUp = (req, res, next) => {
     const email = req.body.email
     const password = req.body.password 
+    const nom = req.body.nom
+    const prenom = req.body.prenom 
     bcrypt.hash(req.body.password, 10)
     .then(hash =>{ 
         db.query("insert into user set  nom =?, prenom =?, email =?, password= ?",[nom,prenom,email,hash],function (err, result){
@@ -71,13 +73,13 @@ exports.getAllUser = (req, res, next) => {
   
   // obtenir un user 
   exports.getOneUser = (req, res, next) => {
-      const id = req.params.id
+      const id = req.auth.userId
    db.query("select * from user where id = ?", [id],function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir l'utilisateur'"})
     }
-    return res.status(200).json({ article: result[0]})
+    return res.status(200).json({ user: result[0]})
       })
   };
   
@@ -86,7 +88,7 @@ exports.getAllUser = (req, res, next) => {
       const nom = req.body.nom
       const prenom = req.body.prenom
       const password = req.body.password
-      const id = req.params.id
+      const id = req.auth.userId
       db.query("update article set nom= ?, prenom= ? ,password= ? where id=?", [ nom, prenom, password, id ],function(err,result){
           if(err){
             console.log(err)
@@ -99,7 +101,7 @@ exports.getAllUser = (req, res, next) => {
   
     //supprimer user
     exports.deleteUser = (req, res, next) => {
-   const id = req.params.id 
+   const id = req.auth.userId 
     db.query("DELETE FROM user where`id` = ? ", [id],function (err, result){
       if(err){
         console.log(err)
