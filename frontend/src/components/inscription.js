@@ -8,7 +8,7 @@ function Inscription(){
 
     const navigate = useNavigate()
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,formState: {errors} } = useForm();
 
     const onSubmit = (data) => {
         axios.post("http://localhost:3001/api/user/signup", data)
@@ -35,19 +35,23 @@ function Inscription(){
                         <h1>Inscription</h1>
                         <div className="ligne2">
                             <label htmlFor="">nom</label>
-                            <input type="text" {...register('nom')}/>
+                            <input type="text" {...register('nom',{pattern :/^([^0-9]*)$/ })}/>
+                            {errors.nom && "doit contenir que des lettres"}
                         </div>
                         <div className="ligne2">
                             <label htmlFor="">prénom</label>
-                            <input type="text"{...register('prenom')}/>
+                            <input type="text"{...register('prenom',{pattern :/^([^0-9]*)$/ })}/>
+                            {errors.prenom && "doit contenir que des lettres"}
                         </div>
                         <div className="ligne2">
                             <label htmlFor="">email</label>
-                            <input type="email" {...register('email')} />
+                            <input type="email" {...register('email',{pattern : /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi })} />
+                            {errors.email && "doit contenir une @"}
                         </div>
                         <div className="ligne2">
                             <label htmlFor="">mot de passe</label>
-                            <input type="password" {...register('password')} />
+                            <input type="password" {...register('password',{pattern :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/ })} />
+                              {errors.password && "doit faire minimun 7 lettres, 1 majuscule, 1 chiffre"}
                         </div>
                           
                             <button>inscription</button>
@@ -68,22 +72,6 @@ function Inscription(){
     )
    
 }
-//Texte valide sans chiffre
-function validateText(value) {
-    if(value.match(/^([^0-9]*)$/)) {
-        return true
-    }
-    return false
-}
-
-//mail valide si @
-function validateEmail(value) {
-    if(value.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi)) {
-        return true;
-    }
-    return false;
-}
-
 
 
 

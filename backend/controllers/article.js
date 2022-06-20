@@ -4,7 +4,8 @@ exports.createArticle = (req, res, next) => {
     const message = req.body.message
     const imageurl = req.body.imageurl
     const userid = req.body.userid
-  db.query("insert into article set userid=?, message=?, imageurl=?",[userid, message, imageurl],function(err,result){
+    const userlike = JSON.stringify([])
+  db.query("insert into article set userid=?, message=?, imageurl=? ,nombrelike=?, userlike=?",[userid, message, imageurl, 0, userlike ],function(err,result){
    if(err){
      console.log(err)
      return res.status(400).json({ error:"impossible de creer l'article"})

@@ -1,60 +1,38 @@
+const { query } = require('../database/db.js');
 const db = require('../database/db.js');
 
-// liker ou disliker les commentaires
-exports.likeNotCommentaire = async (req, res, next) => {
-    const { userId, like } = req.body;
-    const { id } = req.params;
-  
-    switch (like) {
-      case 1:
-        return Sauce.updateOne(
-          { _id: id },
-          { $push: { usersLiked: userId }, $inc: { likes: 1 } }
-        )
-          .then(() => res.status(200).json({ message: "Updated" }))
-          .catch((e) => res.status(400).json({ error: "Error" }));
-      case 0:
-        const sauce = await Sauce.findOne({ _id: id });
-  
-        if (sauce.usersLiked.includes(userId)) {
-          return Sauce.updateOne(
-            { _id: id },
-            { $pull: { usersLiked: userId }, $inc: { likes: -1 } }
-          )
-            .then(() => res.status(200).json({ message: "Updated" }))
-            .catch((e) => res.status(400).json({ error: "Error" }));
-        } else if (sauce.usersDisliked.includes(userId)) {
-          return Sauce.updateOne(
-            { _id: id },
-            { $pull: { usersDisliked: userId }, $inc: { dislikes: -1 } }
-          )
-            .then(() => res.status(200).json({ message: "Updated" }))
-            .catch((e) => res.status(400).json({ error: "Error" }));
-        } else {
-          return res
-            .status(400)
-            .json({ error: "L'utilisatuer n'a pas donné de retour" });
-        }
-  
-      case -1:
-        return Sauce.updateOne(
-          { _id: id },
-          { $push: { usersDisliked: userId }, $inc: { dislikes: 1 } }
-        )
-          .then(() => res.status(200).json({ message: "Updated" }))
-          .catch((e) => res.status(400).json({ error: "Error" }));
-    }
-  };
+// liker ou  les commentaires
 
-  //obtenir les likes
-exports.getAllLike = (req, res, next) => {
-    db.query(" select * from like", function(err,result){
+exports.likeArticle = async (req, res, next) => {
+   const postId = req.params.postId
+   const userId = req.auth.userId
+
+   db.query("select * from article where id = ?", [postId],function(err,result){
+    if(err || !result.length ){
+      console.log(err)
+      return res.status(400).json({ error:"impossible d'avoir l'article'"})
+    }
+    const post = result[0]
+    const recupuserLike = JSON.parse(post.userlike)
+    let userlike = []
+    if (recupuserLike.length) {
+      userlike=recupuserLike
+    }
+    if ( recupuserLike.includes(userId)){
+      return res.status(400).json({ error:"like deja mis"})
+    }
+    const nombrelike = post.nombrelike +1
+     db.query("update article set nombrelike=?, userlike=?   where id=?", [ nombrelike, userlike, postId ],function(err,result){
       if(err){
         console.log(err)
-        return res.status(400).json({ error:"impossible d'avoir les likes"})
+        return res.status(400).json({ error:"impossible de mettre à jour l'article"})
       }
-      return res.status(200).json({ articles: result})
+      return res.status(200).json({message: "article mis à jour"})
+     
     })
-  };
+  })
   
+
+  };
+
   

@@ -31,7 +31,10 @@ function Forum(){
             })
             .catch((error) => console.log(error))
         }
-      
+       const like = (postId) => {
+        axios.post("http://localhost:3001/api/article/"+ postId +"/like")
+       }
+
         return (
             <Layout>
     
@@ -51,12 +54,20 @@ function Forum(){
                 </div>
                {articles.map(article=>{
                    return(
-                   
-                       <div  className='message'>
-                           {article.nom}-{article.prenom}-{article.message}
+                    <div>
+                       <div  className='post'>
+                        <div className='nom'>
+                        {article.nom}-{article.prenom}
+                        </div>
+                        <div className='message'>
+                        {article.message}
+                        </div>
+                         
                        </div>
-                       
+                       <button onClick={()=>like(article.id)} >like</button>
+                       </div>
                    )
+                 
                })}
             </Layout>
         )

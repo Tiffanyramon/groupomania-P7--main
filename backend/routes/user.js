@@ -1,25 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const userctrl = require('../controllers/user');
-const password = require ('../middleware/password');
-const user = require('../middleware/user');
+const userCtrl = require('../controllers/user.js');
+const password = require ('../middleware/password.js');
+const user = require('../middleware/user.js');
 
 //route créa compte 
-router.post('/signup', password,userctrl.signUp);
+router.post('/signup', password,userCtrl.signUp);
 
 //route identification
-router.post('/login', userctrl.login);
+router.post('/login', userCtrl.login);
 
 //route modification user
-router.put('/',user, userctrl.modifyUser);
+router.put('/',user, userCtrl.modifyUser);
 
 //route ensemble user
-//router.get('/', user,userctrl.getAllUser);
+router.get('/', user,userCtrl.getAllUser);
 
 //route affichage connexion user
-router.get('/',user, userctrl.getOneUser);
+router.get('/',user, userCtrl.getOneUser);
 
 //route suppression user
-router.delete('/',user, userctrl.deleteUser);
+router.delete('/',user, userCtrl.deleteUser);
 
 module.exports = router; 
