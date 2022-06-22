@@ -55,16 +55,32 @@ function Forum(){
                {articles.map(article=>{
                    return(
                     <div>
-                       <div  className='post'>
-                        <div className='nom'>
-                        {article.nom}-{article.prenom}
+                       <div  className='main'>
+                        <div className='card'>
+                            <header className='card-header'>
+                                <img src='' width='45' height='45'></img> 
+                                <div className='card-title'>
+                                    {article.nom}-{article.prenom} 
+                                </div>
+                            </header>
+                            <div className='card-message'>
+                                 {article.img}-{article.message}
+                           </div>
                         </div>
-                        <div className='message'>
-                        {article.message}
-                        </div>
-                         
+                        <footer className='card-footer'>
+                            <div className='like'>
+                            <button onClick={()=>like(article.id)} >like</button>
+                            </div>
+                            <div className='comentaire'>
+                                <label htlmFor="">commentaire</label>
+                                 <input type="text"{...register('message')} />
+                                 <button> envoyez</button>
+                            </div>
+                       
+                        </footer>
+                        
                        </div>
-                       <button onClick={()=>like(article.id)} >like</button>
+                       
                        </div>
                    )
                  

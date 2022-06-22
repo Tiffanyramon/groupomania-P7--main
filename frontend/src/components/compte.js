@@ -45,8 +45,9 @@ const like = (postId) => {
     </Layout>
 
 )
+   }
 
-}
+
 
 
 
