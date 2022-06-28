@@ -11,6 +11,8 @@ const articleRoutes = require ("./routes/article.js");
 const userRoutes = require ("./routes/user.js");
 const commentaireRoutes = require("./routes/commentaire.js");
 
+app.use('/images', express.static(path.join(__dirname, 'images')))
+
 app.use((req, res, next) => {
     //acceder a l'api
     res.setHeader('Access-Control-Allow-Origin', '*')

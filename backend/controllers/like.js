@@ -15,14 +15,24 @@ exports.likeArticle = async (req, res, next) => {
     const post = result[0]
     const recupuserLike = JSON.parse(post.userlike)
     let userlike = []
+    let nombrelike = post.nombrelike || 0
     if (recupuserLike.length) {
       userlike=recupuserLike
     }
     if ( recupuserLike.includes(userId)){
-      return res.status(400).json({ error:"like deja mis"})
+      userlike= recupuserLike.filter(
+        el => el!==userId
+      )
+      nombrelike = nombrelike -1
     }
-    const nombrelike = post.nombrelike +1
-     db.query("update article set nombrelike=?, userlike=?   where id=?", [ nombrelike, userlike, postId ],function(err,result){
+    else{
+      userlike.push(userId)
+      nombrelike = nombrelike +1
+    }
+
+    userlike = JSON.stringify(userlike)
+   
+     db.query("update article set nombrelike=?, userlike=? where id=?", [ nombrelike, userlike, postId ],function(err,result){
       if(err){
         console.log(err)
         return res.status(400).json({ error:"impossible de mettre à jour l'article"})

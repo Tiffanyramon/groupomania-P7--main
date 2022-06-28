@@ -17,7 +17,7 @@ router.put('/',user, userCtrl.modifyUser);
 router.get('/', user,userCtrl.getAllUser);
 
 //route affichage connexion user
-router.get('/',user, userCtrl.getOneUser);
+router.get('/profil',user, userCtrl.getOneUser);
 
 //route suppression user
 router.delete('/',user, userCtrl.deleteUser);

@@ -10,11 +10,11 @@ function Compte(){
    const [user, setUser] = useState()
    const navigate = useNavigate()
    useEffect(() => {
-       axios.get("http://localhost:3001/api/user")
+       axios.get("http://localhost:3001/api/user/profil")
        .then((result) =>{
            setUser(result.data.user)
        })
-       axios.get("http://localhost:3001/api/article")
+       axios.get("http://localhost:3001/api/article/id")
        .then((result) => {
            setArticles(result.data.articles)
        })
@@ -35,20 +35,33 @@ const like = (postId) => {
     axios.post("http://localhost:3001/api/article/"+ postId +"/like")
    } 
 
-   return (
-    <Layout>
-        <div className="params">
-            <Link to={"/parametre"}>
-                <button> paramètres </button>
-            </Link>
-        </div>
-    </Layout>
+   {articles.map(article=>{
+    return (
+        <Layout>
+            <div className="params">
+                <Link to={"/parametre"}>
+                    <button> paramètres </button>
+                </Link>
+            </div>
+            <div className='card'>
+                <header className='card-header'>
+                    <div className='card-title'>
+                        {article.nom}-{article.prenom}
+                    </div>
+                </header>
+            </div>
+            <div className='card-message'> 
+                  {article.imageurl}-{article.message}
+            </div>
+        </Layout>
 
-)
-   }
+    
+    
+    )
+   })
+}
+ 
+}
 
-
-
-
-
+   
 export default Compte

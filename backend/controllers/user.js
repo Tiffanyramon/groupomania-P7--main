@@ -67,7 +67,7 @@ exports.getAllUser = (req, res, next) => {
         console.log(err)
         return res.status(400).json({ error:"impossible d'avoir les utilisateurs"})
       }
-      return res.status(200).json({ articles: result})
+      return res.status(200).json({ user: result})
     })
   };
   

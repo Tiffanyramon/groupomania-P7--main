@@ -7,7 +7,7 @@ const articleCtrl = require('../controllers/article.js');
 const likeCtrl = require('../controllers/like.js');
 
 //route créa article
-router.post('/', user,articleCtrl.createArticle);
+router.post('/', user, multer,articleCtrl.createArticle);
 
 //route ensemble article
 router.get('/' ,user,articleCtrl.getAllArticle);
@@ -16,7 +16,7 @@ router.get('/' ,user,articleCtrl.getAllArticle);
 router.get('/:id',user, articleCtrl.getOneArticle);
 
 //route modification article
-router.put('/:id',user, articleCtrl.modifyArticle);
+router.put('/:id',user,multer, articleCtrl.modifyArticle);
 
 //route suppression article
 router.delete('/:id',user, articleCtrl.deleteArticle);

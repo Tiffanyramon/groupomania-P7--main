@@ -23,5 +23,5 @@ function Inscription(){
             )
            
         })
-        .catch((error) => console.log(error))
-    }
+
+  

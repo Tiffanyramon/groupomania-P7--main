@@ -2,7 +2,9 @@ const db = require('../database/db.js');
 //créa article
 exports.createArticle = (req, res, next) => { 
     const message = req.body.message
-    const imageurl = req.body.imageurl
+    let imageurl = null 
+   if(req.file) {
+     imageurl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`} 
     const userid = req.body.userid
     const userlike = JSON.stringify([])
   db.query("insert into article set userid=?, message=?, imageurl=? ,nombrelike=?, userlike=?",[userid, message, imageurl, 0, userlike ],function(err,result){
@@ -16,7 +18,7 @@ exports.createArticle = (req, res, next) => {
 
 //obtenir les articles
 exports.getAllArticle = (req, res, next) => {
-  db.query(" select * from article inner join user on user.id = article.userid ", function(err,result){
+  db.query(" select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid ", function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir les articles"})
