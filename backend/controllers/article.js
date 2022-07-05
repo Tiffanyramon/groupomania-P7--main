@@ -1,6 +1,7 @@
 const db = require('../database/db.js');
 //créa article
 exports.createArticle = (req, res, next) => { 
+  console.log(req.body)
     const message = req.body.message
     let imageurl = null 
    if(req.file) {
