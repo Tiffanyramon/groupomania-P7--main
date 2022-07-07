@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&display=swap');
+
+/* Version desktop*/
+
+
+.partage{
+
+    background: rgba(255, 255, 255, .3);
+    padding: 3rem;
+    height: 130px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;
+}
+label{
+    font-family: loto;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+    opacity: 1.7;
+    font-size: 1.4rem;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    font-size: 30px;
+}
+.post{
+    display: block;
+}
+
+.file{
+    display: block;
+}
+.txtbox{
+    font-size: 18px;
+    height: 2000px;
+    width: 200px;
+}
+.publiez{
+    justify-content: flex-end;
+}
+.card-title{
+   
+    font-family: Loto;
+    padding-bottom: 20px;
+    font-size: 25px;
+    background: rgba(255, 255, 255, .3);
+    padding: 1rem;
+    padding-right: 3px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+   
+}
+.card{
+    background: rgba(255, 255, 255, .3);
+    padding: 2.5rem;
+    height: auto;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+    font-family: loto;
+    font-size: 25px;
+}   
+
+.card-message{
+    display: grid;
+    justify-content: center;
+    justify-items: start;
+}
+
+.button-container{
+    justify-content: flex-end;
+}
+
+.like{
+    display: flex;
+    justify-content: space-between;
+}
+
+.drop {
+    background: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    box-shadow: 10px 10px 60px -8px rgba(0,0,0,0.2);
+    position: absolute;
+    transition: all 0.2s ease;
+  }
+
+  .drop-1 {
+    height: 80px; width: 80px;
+    top: 20px; left: 215px;
+    z-index: -1;
+  }
+  
+  .drop-2 {
+    height: 80px; width: 80px;
+    bottom: 70px; right: 50px;
+  }
+  
+  .drop-3 {
+    height: 110px; width: 110px;
+    bottom: 970px; right: 362px;
+    z-index: -1;
+  }
+  
+  .drop-4 {
+    height: 80px; width: 80px;
+    top: 80px; right: 170px;
+    z-index: -1;
+  }
+  
+  .drop-5 {
+    height: 60px; width: 60px;
+    bottom: 170px; left: 90px;
+    z-index: -1;
+  }
+
+  .drop-6 {
+    height: 130px; width: 130px;
+    bottom: -68px; left: -39px;
+   
+  }

@@ -5,7 +5,6 @@ const AddPost = ({ user }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const formdata = new FormData();
     formdata.append('message', data.message);
     formdata.append('image', data.image[0]);
@@ -25,10 +24,13 @@ const AddPost = ({ user }) => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="">exprimez-vous...</label>
-              <input type="text" {...register('message')} />
               <input type="file" {...register('image')} />
+              <input type="text" {...register('message')} id="txtbox"/>
+              
             </div>
+            <div className="publiez">
             <button> publiez </button>
+            </div>
           </form>
         </div>
       </div>
