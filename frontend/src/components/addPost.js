@@ -5,7 +5,6 @@ const AddPost = ({ user }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const formdata = new FormData();
     formdata.append('message', data.message);
     formdata.append('image', data.image[0]);
