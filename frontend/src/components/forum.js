@@ -9,6 +9,12 @@ import Commentaire from './Commentaire';
 // import '/.fontawesome';
 
 
+
+import ModifyPost from './ModifyPost';
+import AddPost from './AddPost';
+import Commentaire from './Commentaire';
+
+
 function Forum() {
   const [isUpdated, setIsUpdated] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
@@ -63,6 +69,18 @@ function Forum() {
                 )}
               </div>
 
+      <AddPost user={user} />
+
+      {articles.map((article) => {
+        return (
+          <div>
+            <div className="card">
+              <header className="card-header">
+                <div className="card-title">
+                  {article.nom}-{article.prenom}
+                </div>
+              </header>
+
               {user.id === article.userid && (
                 <div className="button-container">
                   <div>
@@ -77,6 +95,7 @@ function Forum() {
                   </div>
                 </div>
               )}
+
 
             <footer className="card-footer">
               <div className="like">
@@ -95,6 +114,28 @@ function Forum() {
             <div class="drop drop-6"></div>
             </div>
             
+        );
+      })}
+    </Layout>
+);
+}
+
+              <div className="card-message">
+                <img src={article.imageurl} alt="" />
+                {article.message}
+                {isUpdated && article.id === currentPost && (
+                  <ModifyPost article={article} />
+                )}
+              </div>
+            </div>
+            <footer className="card-footer">
+              <div className="like">
+                <button onClick={() => like(article.id)}>  {/* <FontAwesomeIcon icon="fa-thin fa-thumbs-up" /> */} like </button> 
+                {article.nombrelike}
+              </div>
+              <Commentaire user={user} />
+            </footer>
+          </div>
         );
       })}
     </Layout>
