@@ -12,7 +12,7 @@ const AddPost = ({ user }) => {
     axios
       .post('http://localhost:3001/api/article', formdata)
       .then((result) => {
-        window.location.reload();
+         window.location.reload();
       })
       .catch((error) => console.log(error));
   };

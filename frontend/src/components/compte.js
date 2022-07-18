@@ -14,12 +14,15 @@ function Compte(){
        .then((result) =>{
            setUser(result.data.user)
        })
-       axios.get("http://localhost:3001/api/article/id")
-       .then((result) => {
-           setArticles(result.data.articles)
-       })
-       .catch((error) => console.log(error))
-   },[])  
+       if(user){
+        axios.get("http://localhost:3001/api/article/all/" + user.id)
+        .then((result) => {
+            setArticles(result.data.articles)
+        })
+        .catch((error) => console.log(error))
+    }
+       }
+       ,[])  
    
 const { register,handleSubmit } = useForm();
 
@@ -35,14 +38,19 @@ const like = (postId) => {
     axios.post("http://localhost:3001/api/article/"+ postId +"/like")
    } 
 
-   {articles.map(article=>{
+  
     return (
+
         <Layout>
             <div className="params">
                 <Link to={"/parametre"}>
                     <button> paramètres </button>
                 </Link>
             </div>
+            
+            {articles.length && articles.map(article=>{
+                return(
+                    <div>
             <div className='card'>
                 <header className='card-header'>
                     <div className='card-title'>
@@ -53,15 +61,17 @@ const like = (postId) => {
             <div className='card-message'> 
                   {article.imageurl}-{article.message}
             </div>
+
+            </div>
+                )
+               
+            })}
+            
         </Layout>
 
     
     
     )
-   })
-}
- 
-}
+   }
 
-   
 export default Compte

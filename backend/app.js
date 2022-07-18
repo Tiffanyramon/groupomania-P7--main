@@ -11,6 +11,7 @@ const articleRoutes = require ("./routes/article.js");
 const userRoutes = require ("./routes/user.js");
 const commentaireRoutes = require("./routes/commentaire.js");
 
+
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 app.use((req, res, next) => {
@@ -39,6 +40,7 @@ app.use(express.json());
 app.use('/api/user',userRoutes);
 app.use('/api/article',articleRoutes);
 app.use('/api/commentaire',commentaireRoutes);
+
 
 
 

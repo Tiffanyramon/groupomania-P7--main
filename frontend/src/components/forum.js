@@ -42,6 +42,16 @@ function Forum() {
       });
   };
 
+  const supprimer = (postId) => {
+    axios
+    .delete('http://localhost:3001/api/article/' + postId )
+    .then (()=> {
+      getPosts();
+    });
+  }
+  if(!user){
+    return"chargement"
+  }
   return (
     <Layout>
       <AddPost user={user} />
@@ -65,7 +75,7 @@ function Forum() {
                 )}
               </div>
 
-              {user.id === article.userid && (
+              {(user.admin || user.id === article.userid ) && (
                 <div className="button-container">
                   <div>
                     <button
@@ -76,6 +86,9 @@ function Forum() {
                     >
                       Modifier
                     </button>
+                    <div className="supprimer">
+                <button onClick={() => supprimer(article.id)}>supprimez</button>
+              </div>
                   </div>
                 </div>
               )}
@@ -85,7 +98,8 @@ function Forum() {
                 <button onClick={() => like(article.id)}>like</button>
                 {article.nombrelike}
               </div>
-              {/* <commenraire user= {user} */}
+              
+              {/* <commentaire user= {user} */}
             </footer>
             </div>
             </div>

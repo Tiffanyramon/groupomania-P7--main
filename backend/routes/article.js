@@ -24,4 +24,6 @@ router.delete('/:id',user, articleCtrl.deleteArticle);
 //route aime 
 router.post('/:postId/like', user, likeCtrl.likeArticle);
 
+router.get('/all/:id', user, articleCtrl.getAllArticleUser);
+
 module.exports = router; 

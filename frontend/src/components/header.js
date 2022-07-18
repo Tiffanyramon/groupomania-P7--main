@@ -18,7 +18,7 @@ function Header(){
      return (
           <div className='group-header'>
                <div className='group-title'>
-               <img className="logo" src="groupomania-P7--main/Groupomania Logos/icon-left-font-monochrome-white.png"     alt="logo groupomania" ></img>
+               <img className="logo" src="C:\Users\tiffanyp\Desktop\image groupomania\Groupomania Logos\icon-left-font-monochrome-white.png"     alt="logo groupomania" ></img>
                </div>
                <Link to={"/login"}>
                   <button> connexion </button>

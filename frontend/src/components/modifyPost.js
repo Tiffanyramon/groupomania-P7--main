@@ -7,12 +7,12 @@ const ModifyPost = ({ article }) => {
   const onSubmit = (data) => {
     const formdata = new FormData();
     formdata.append('message', data.message);
-    formdata.append ('image', data.image);
+    formdata.append ('image', data.image[0]);
 
     axios
       .put('http://localhost:3001/api/article/' + article.id, formdata)
       .then((result) => {
-        window.location.reload();
+         window.location.reload();
       })
       .catch((err) => console.log(err));
   };
@@ -21,7 +21,7 @@ const ModifyPost = ({ article }) => {
     <div className="update-post">
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea defaultValue={article.message} {...register('message')} />
-        <div defaultValue={article.image} {...register('image')} /> 
+        <input type="file" defaultValue={article.image} {...register('image')} /> 
         <div className="button-container">
           <button className="btn">valider modifiction</button>
         </div>

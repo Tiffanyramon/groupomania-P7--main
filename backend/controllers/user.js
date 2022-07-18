@@ -50,7 +50,7 @@ exports.login =(req, res, next) => {
             res.status(200).json({
                 userId: result[0].id, 
                 token: jwt.sign(
-                    { userId: result[0].id},
+                    { userId: result[0].id, admin:result[0].admin},
                     process.env.JWT_SECRET, 
                 )
             });
