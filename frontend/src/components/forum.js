@@ -3,12 +3,8 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
 import { render } from 'react-dom';
-import ModifyPost from './ModifyPost';
-import AddPost from './AddPost';
-import Commentaire from './Commentaire';
+
 // import '/.fontawesome';
-
-
 
 import ModifyPost from './ModifyPost';
 import AddPost from './AddPost';
@@ -48,19 +44,19 @@ function Forum() {
 
   return (
     <Layout>
-       
       <AddPost user={user} />
+
       {articles.map((article) => {
         return (
           <div>
-            <div className="post">
+            <div className='post'>
             <div className="card">
               <header className="card-header">
                 <div className="card-title">
                   {article.nom} {article.prenom}
                 </div>
-
               </header>
+            
               <div className="card-message">
                 <img src={article.imageurl} alt="" />
                 {article.message}
@@ -68,18 +64,6 @@ function Forum() {
                   <ModifyPost article={article} />
                 )}
               </div>
-
-      <AddPost user={user} />
-
-      {articles.map((article) => {
-        return (
-          <div>
-            <div className="card">
-              <header className="card-header">
-                <div className="card-title">
-                  {article.nom}-{article.prenom}
-                </div>
-              </header>
 
               {user.id === article.userid && (
                 <div className="button-container">
@@ -95,46 +79,23 @@ function Forum() {
                   </div>
                 </div>
               )}
-
-
-            <footer className="card-footer">
-              <div className="like">
-                 <button onClick={() => like(article.id)}>  like  </button>  
-                {article.nombrelike}
-              </div>
-              {/* <Commentaire user={user} /> */}
-            </footer>
-            </div>
-            </div>
-            <div class="drop drop-1"></div>
-            <div class="drop drop-2"></div>
-            <div class="drop drop-3"></div>
-            <div class="drop drop-4"></div>
-            <div class="drop drop-5"></div>
-            <div class="drop drop-6"></div>
-            </div>
             
-        );
-      })}
-    </Layout>
-);
-}
-
-              <div className="card-message">
-                <img src={article.imageurl} alt="" />
-                {article.message}
-                {isUpdated && article.id === currentPost && (
-                  <ModifyPost article={article} />
-                )}
-              </div>
-            </div>
             <footer className="card-footer">
               <div className="like">
-                <button onClick={() => like(article.id)}>  {/* <FontAwesomeIcon icon="fa-thin fa-thumbs-up" /> */} like </button> 
+                <button onClick={() => like(article.id)}>like</button>
                 {article.nombrelike}
               </div>
-              <Commentaire user={user} />
+              {/* <commenraire user= {user} */}
             </footer>
+            </div>
+            </div>
+             <div className="drop drop-1"></div>
+             <div className="drop drop-2"></div>
+             <div className="drop drop-3"></div>
+             <div className="drop drop-4"></div>
+             <div className="drop drop-5"></div>
+             <div className="drop drop-6"></div>
+
           </div>
         );
       })}
@@ -143,3 +104,5 @@ function Forum() {
 }
 
 export default Forum;
+
+
