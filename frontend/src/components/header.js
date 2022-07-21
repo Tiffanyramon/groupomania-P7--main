@@ -21,18 +21,18 @@ function Header(){
                <img className="logo" src="C:\Users\tiffanyp\Desktop\image groupomania\Groupomania Logos\icon-left-font-monochrome-white.png"     alt="logo groupomania" ></img>
                </div>
                <Link to={"/login"}>
-                  <button> connexion </button>
+                  <button> Connexion </button>
                </Link>
               <Link to={"/inscription"}> 
-                  <button> inscription </button>
+                  <button> Inscription </button>
               </Link> 
 
               <Link to={"/compte"}>
-              <button> compte </button>
+              <button> Compte </button>
               </Link>
 
                 <button onClick={deconnexion}>
-                     deconnexion </button>     
+                     Deconnexion </button>     
           </div>
      )
   

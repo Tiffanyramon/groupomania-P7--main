@@ -7,8 +7,11 @@ import { useEffect, useState } from 'react';
 
 function Compte(){
    const [articles, setArticles] = useState([])
+   const [isUpdated, setIsUpdated] = useState(false);
+   const [currentPost, setCurrentPost] = useState(null);
    const [user, setUser] = useState()
    const navigate = useNavigate()
+
    useEffect(() => {
        axios.get("http://localhost:3001/api/user/profil")
        .then((result) =>{
@@ -38,14 +41,39 @@ const like = (postId) => {
     axios.post("http://localhost:3001/api/article/"+ postId +"/like")
    } 
 
+   const supprimer = (userId) => {
+    axios
+    .delete('http://localhost:3001/api/deleteUser/' +userId )
+    .then (()=> {
+     user();
+    });
+  }
+  if(!user){
+    return"chargement"
+  }
   
     return (
 
         <Layout>
-            <div className="params">
-                <Link to={"/parametre"}>
-                    <button> paramètres </button>
+            <div className="buttonplus">
+                <Link to={"/forum"}>
+                    <button>Forum</button>
                 </Link>
+
+                {(user.admin || user.id === user.userid ) && (
+                <div className="button-container">
+                  <div>
+                    <button
+                      onClick={() => {
+                        setIsUpdated(!isUpdated);
+                        setCurrentPost(user.id);
+                      }}
+                    >
+                     supprimer compte
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
             
             {articles.length && articles.map(article=>{

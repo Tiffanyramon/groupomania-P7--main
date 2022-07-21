@@ -89,6 +89,20 @@ exports.getAllUser = (req, res, next) => {
       const prenom = req.body.prenom
       const password = req.body.password
       const id = req.auth.userId
+      let imageurl
+      db.query("select * from article where id = ?", [id],function(err,result){
+        if(err){
+         console.log(err)
+         return res.status(400).json({ error:"impossible d'avoir l'utilisateur'"})
+       }
+       if( !req.auth.admin && result[0].userid !== req.auth.userId ){
+         return res.status(401).json({error: "accès interdit"})
+       }
+       if(req.file){
+         imageurl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`} 
+     else{
+       imageurl = result[0].imageurl
+     }console.log(imageurl)
       db.query("update article set nom= ?, prenom= ? ,password= ? where id=?", [ nom, prenom, password, id ],function(err,result){
           if(err){
             console.log(err)
@@ -97,17 +111,29 @@ exports.getAllUser = (req, res, next) => {
           return res.status(200).json({message: "profil mis à jour"})
          
         })
+      })  
     };
   
     //supprimer user
     exports.deleteUser = (req, res, next) => {
    const id = req.auth.userId 
-    db.query("DELETE FROM user where`id` = ? ", [id],function (err, result){
+    db.query("select * form user where`id` = ? ", [id],function (err, result){
       if(err){
         console.log(err)
-        return res.status(400).json({ error:"impossible de supprimer l'utilisateur'"})
+        return res.status(400).json({ error:"impossible d'avoir l'utilisateur"})
       }
-      return res.status(201).json({message: "utilisateur supprime"})
-    })
+      if( !req.auth.admin && result[0].userid !== req.auth.userId){
+        return res.status(401).json({error:"accès interdit"})
+      }
+      db.query("delete from user where`id` = ? ", [id],function (err, result){
+        if(err){
+          console.log(err)
+          return res.status(400).json({ error:"impossible de supprimer l'utilisateur"})
+        }
+        return res.status(201).json({message: "utilisateur supprime"})
+      })
+
+     })
+     
   };
 

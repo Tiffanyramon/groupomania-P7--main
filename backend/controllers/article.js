@@ -90,7 +90,7 @@ db.query("update article set message= ?, imageurl= ? where id=?", [ message, ima
   //supprimer article
   exports.deleteArticle = (req, res, next) => {
  const id = req.params.id 
- db.query("select * from article where id = ?", [id],function(err,result){
+ db.query("select * from article where `id` = ?", [id],function(err,result){
   if(err){
    console.log(err)
    return res.status(400).json({ error:"impossible d'avoir l'article'"})
