@@ -3,6 +3,9 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
 import { render } from 'react-dom';
+import {IoIosHeart} from 'react-icons/io';
+import {TiTrash} from 'react-icons/ti';
+import{FaPencilAlt} from 'react-icons/fa';
 
 // import '/.fontawesome';
 
@@ -55,7 +58,7 @@ function Forum() {
   return (
     <Layout>
       <AddPost user={user} />
-
+    
       {articles.map((article) => {
         return (
           <div>
@@ -83,11 +86,9 @@ function Forum() {
                         setIsUpdated(!isUpdated);
                         setCurrentPost(article.id);
                       }}
-                    >
-                      Modifier
-                    </button>
+                    ><FaPencilAlt/> Modifier </button>
                     <div className="supprimer">
-                <button onClick={() => supprimer(article.id)}>supprimez</button>
+                <button onClick={() => supprimer(article.id)}><TiTrash/>supprimer</button>
               </div>
                   </div>
                 </div>
@@ -95,7 +96,7 @@ function Forum() {
             
             <footer className="card-footer">
               <div className="like">
-                <button onClick={() => like(article.id)}>like</button>
+                <button onClick={() => like(article.id)}><IoIosHeart/>J'aime </button>
                 {article.nombrelike}
               </div>
               

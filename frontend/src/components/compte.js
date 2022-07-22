@@ -5,12 +5,17 @@ import Layout from '../layouts/layout';
 import {useNavigate, Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+
 function Compte(){
+
+ 
+
    const [articles, setArticles] = useState([])
    const [isUpdated, setIsUpdated] = useState(false);
    const [currentPost, setCurrentPost] = useState(null);
    const [user, setUser] = useState()
    const navigate = useNavigate()
+
 
    useEffect(() => {
        axios.get("http://localhost:3001/api/user/profil")
