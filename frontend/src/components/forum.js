@@ -3,11 +3,11 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
 import { render } from 'react-dom';
+
 import {IoIosHeart} from 'react-icons/io';
 import {TiTrash} from 'react-icons/ti';
 import{FaPencilAlt} from 'react-icons/fa';
 
-// import '/.fontawesome';
 
 import ModifyPost from './ModifyPost';
 import AddPost from './AddPost';
@@ -57,6 +57,7 @@ function Forum() {
   }
   return (
     <Layout>
+      
       <AddPost user={user} />
     
       {articles.map((article) => {
@@ -69,14 +70,17 @@ function Forum() {
                   {article.nom} {article.prenom}
                 </div>
               </header>
-            
+              
               <div className="card-message">
                 <img src={article.imageurl} alt="" />
+                <div className='m'>
                 {article.message}
+                </div>
                 {isUpdated && article.id === currentPost && (
                   <ModifyPost article={article} />
                 )}
               </div>
+              
 
               {(user.admin || user.id === article.userid ) && (
                 <div className="button-container">
@@ -100,10 +104,12 @@ function Forum() {
                 {article.nombrelike}
               </div>
               
-              {/* <commentaire user= {user} */}
+     
+              
             </footer>
             </div>
             </div>
+            
              <div className="drop drop-1"></div>
              <div className="drop drop-2"></div>
              <div className="drop drop-3"></div>
@@ -113,7 +119,9 @@ function Forum() {
 
           </div>
         );
+      
       })}
+     
     </Layout>
   );
 }

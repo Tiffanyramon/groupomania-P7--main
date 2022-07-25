@@ -91,10 +91,20 @@ label{
 .button-container{
     justify-content: flex-end;
 }
-
+.supprimer{
+  display: flex-end;
+}
 .like{
     display: flex;
     justify-content: space-between;
+}
+.m{
+  margin-top: 20px;
+  font-size: lato;
+}
+img{
+  width: 450px;
+  height: auto;
 }
 
 .drop {

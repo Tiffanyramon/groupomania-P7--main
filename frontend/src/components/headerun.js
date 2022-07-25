@@ -11,14 +11,14 @@ function Headerun(){
           <div className='group-header'>
                <h1 className='group-title'>{title}</h1>
                <Link to={"/login"}>
-                  <button> connexion </button>
+                  <button> Connexion </button>
                </Link>
               <Link to={"/inscription"}> 
-                  <button> inscription </button>
+                  <button> Inscription </button>
               </Link> 
             
-                <button onClick={"/deconnexion"}>
-                     deconnexion </button>     
+                <button onClick={deconnexion}>
+                     Deconnexion </button>     
           </div>
      )
   

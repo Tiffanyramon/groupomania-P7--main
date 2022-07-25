@@ -117,15 +117,13 @@ exports.getAllUser = (req, res, next) => {
     //supprimer user
     exports.deleteUser = (req, res, next) => {
    const id = req.auth.userId 
-    db.query("select * form user where`id` = ? ", [id],function (err, result){
+    db.query("select * from user where `id` = ? ", [id],function (err, result){
       if(err){
         console.log(err)
         return res.status(400).json({ error:"impossible d'avoir l'utilisateur"})
       }
-      if( !req.auth.admin && result[0].userid !== req.auth.userId){
-        return res.status(401).json({error:"accès interdit"})
-      }
-      db.query("delete from user where`id` = ? ", [id],function (err, result){
+     
+      db.query("delete from user where `id` = ? ", [id],function (err, result){
         if(err){
           console.log(err)
           return res.status(400).json({ error:"impossible de supprimer l'utilisateur"})

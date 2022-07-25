@@ -4,6 +4,9 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import {useNavigate, Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ModifyPost from './ModifyPost';
+
+import {IoIosHeart} from 'react-icons/io';
 
 
 function Compte(){
@@ -21,14 +24,12 @@ function Compte(){
        axios.get("http://localhost:3001/api/user/profil")
        .then((result) =>{
            setUser(result.data.user)
+           axios.get("http://localhost:3001/api/article/all/" + result.data.user.id)
+           .then((result) => {
+               setArticles(result.data.articles)
+           })
+           .catch((error) => console.log(error))
        })
-       if(user){
-        axios.get("http://localhost:3001/api/article/all/" + user.id)
-        .then((result) => {
-            setArticles(result.data.articles)
-        })
-        .catch((error) => console.log(error))
-    }
        }
        ,[])  
    
@@ -48,9 +49,10 @@ const like = (postId) => {
 
    const supprimer = (userId) => {
     axios
-    .delete('http://localhost:3001/api/deleteUser/' +userId )
+    .delete('http://localhost:3001/api/user/' )
     .then (()=> {
-     user();
+      localStorage.clear()
+      navigate("/login");
     });
   }
   if(!user){
@@ -61,27 +63,23 @@ const like = (postId) => {
 
         <Layout>
             <div className="buttonplus">
-                <Link to={"/forum"}>
+                <Link to={"/"}>
                     <button>Forum</button>
                 </Link>
 
-                {(user.admin || user.id === user.userid ) && (
+               
                 <div className="button-container">
                   <div>
                     <button
-                      onClick={() => {
-                        setIsUpdated(!isUpdated);
-                        setCurrentPost(user.id);
-                      }}
-                    >
+                      onClick={() => { supprimer()}} >
                      supprimer compte
                     </button>
                   </div>
                 </div>
-              )}
+            
             </div>
             
-            {articles.length && articles.map(article=>{
+            {articles.length ? articles.map(article=>{
                 return(
                     <div>
             <div className='card'>
@@ -91,14 +89,29 @@ const like = (postId) => {
                     </div>
                 </header>
             </div>
-            <div className='card-message'> 
-                  {article.imageurl}-{article.message}
-            </div>
+            <div className="card-message">
+                <img src={article.imageurl} alt="" />
+                <div className='m'>
+                {article.message}
+                </div>
+                {isUpdated && article.id === currentPost && (
+                  <ModifyPost article={article} />
+                )}
+              </div>
 
+            <footer className="card-footer">
+              <div className="like">
+               <IoIosHeart/>
+                {article.nombrelike}
+              </div>
+              
+        
+              
+            </footer>
             </div>
                 )
                
-            })}
+            }):null}
             
         </Layout>
 

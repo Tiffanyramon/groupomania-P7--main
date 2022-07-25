@@ -31,14 +31,14 @@ function Connexion(){
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post">
                  <h1>Connexion</h1>
                  <div className="ligne">
-                     <label htmlFor="">email</label>
+                     <label htmlFor="">Email</label>
                      <input type="email" {...register('email')} />
                  </div>
                  <div className="ligne">
-                     <label htmlFor="">mot de passe</label>
+                     <label htmlFor="">Mot de passe</label>
                      <input type="password" {...register('password')} />
                  </div>
-                 <button>connexion</button>
+                 <button>Connexion</button>
                 
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post"></form>
                   
