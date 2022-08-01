@@ -32,6 +32,10 @@ function Header(){
               <button> Compte </button>
               </Link>
 
+              <Link to={"/"}>
+                    <button>Forum</button>
+                </Link>
+
                 <button onClick={deconnexion}>
                      Deconnexion </button>     
           </div>

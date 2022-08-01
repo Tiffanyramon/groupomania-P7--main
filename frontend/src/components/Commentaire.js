@@ -20,9 +20,9 @@ const Commentaire =({ user }) => {
     return (
         
         <div className="commentaire">
-                <label htlmFor="">commentaire</label>
+                <label htlmFor="">Commentaire</label>
                 <input type="text" {...register('messageUpdated')} />
-                <button> envoyez </button>
+                <button> Envoyez </button>
               </div> 
     )
 } 

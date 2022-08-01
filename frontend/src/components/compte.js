@@ -1,4 +1,4 @@
-import '../styles/compte.css';
+import '../styles/forum.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../layouts/layout';
@@ -63,16 +63,11 @@ const like = (postId) => {
 
         <Layout>
             <div className="buttonplus">
-                <Link to={"/"}>
-                    <button>Forum</button>
-                </Link>
-
-               
                 <div className="button-container">
                   <div>
                     <button
                       onClick={() => { supprimer()}} >
-                     supprimer compte
+                     Supprimer compte
                     </button>
                   </div>
                 </div>

@@ -1,5 +1,7 @@
 import '../styles/header.css';
 import {Link, useNavigate} from "react-router-dom"
+import logo from '../images/icon-left-font-monochrome-white.png'
+
 function Headerun(){
      const navigate=useNavigate()
      const title ='Groupomania'
@@ -9,8 +11,11 @@ function Headerun(){
      }
      return (
           <div className='group-header'>
-               <h1 className='group-title'>{title}</h1>
+               <div className='group-title'>
+               <img className="logo" src={logo}    alt="logo groupomania" ></img>
+               </div>
                <Link to={"/login"}>
+               
                   <button> Connexion </button>
                </Link>
               <Link to={"/inscription"}> 

@@ -53,7 +53,7 @@ function Inscription(){
                             <input type="password" {...register('password',{pattern :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/ })} />
                               {errors.password && "doit faire minimun 7 lettres, 1 majuscule, 1 chiffre"}
                         </div>
-                          
+                        <h2>Doit contenir 7 lettres,<br/> 1 majuscule, 1 chiffre</h2>
                             <button>Inscription</button>
                             </form> 
             

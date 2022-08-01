@@ -22,7 +22,7 @@ body{
     text-align: center;
 }
 label{  
-    font-family: loto;
+    font-family: lato;
     color: black;
     font-weight: 500;
     font-size: 20px;
@@ -31,6 +31,7 @@ label{
     margin-bottom: 60px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
     font-size: 30px;
+    font-weight: 900;
 }
 .post{
     display: block;
@@ -39,17 +40,14 @@ label{
 .file{
     display: block;
 }
-.txtbox{
-    font-size: 18px;
-    height: 2000px;
-    width: 200px;
-}
+
 .publiez{
     justify-content: flex-end;
+    font-family: lato;
 }
 .card-title{
    
-    font-family: Loto;
+    font-family: Lato;
     padding-bottom: 20px;
     font-size: 25px;
     background: rgba(255, 255, 255, .3);
@@ -62,6 +60,7 @@ label{
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    font-weight: 900;
    
 }
 .card{
@@ -76,7 +75,7 @@ label{
     -moz-backdrop-filter: blur(10px);
     box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
     margin-bottom: 10px;
-    font-family: loto;
+    font-family: lato;
     font-size: 25px;
 }   
 
@@ -88,25 +87,33 @@ label{
     margin-bottom: 30px;
 }
 
-.button-container{
-    justify-content: flex-end;
-}
 .supprimer{
-  display: flex-end;
+  display: contents;
+  justify-content: space-between;
 }
+.TiTrash{
+  font-size: 30px;
+}
+
 .like{
     display: flex;
     justify-content: space-between;
+    font-weight: 900;
 }
 .m{
   margin-top: 20px;
   font-size: lato;
+  font-size: 30px;
+  font-weight: 900;
 }
 img{
   width: 450px;
   height: auto;
 }
 
+.textarea{
+  margin-top: 30px;
+}
 .drop {
     background: rgba(255, 255, 255, .3);
     backdrop-filter: blur(10px);

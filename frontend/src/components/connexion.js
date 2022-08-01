@@ -38,6 +38,7 @@ function Connexion(){
                      <label htmlFor="">Mot de passe</label>
                      <input type="password" {...register('password')} />
                  </div>
+                 
                  <button>Connexion</button>
                 
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post"></form>

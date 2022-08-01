@@ -90,9 +90,9 @@ function Forum() {
                         setIsUpdated(!isUpdated);
                         setCurrentPost(article.id);
                       }}
-                    ><FaPencilAlt/> Modifier </button>
+                    ><FaPencilAlt/></button>
                     <div className="supprimer">
-                <button onClick={() => supprimer(article.id)}><TiTrash/>supprimer</button>
+                <button onClick={() => supprimer(article.id)}><TiTrash/></button>
               </div>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ function Forum() {
             
             <footer className="card-footer">
               <div className="like">
-                <button onClick={() => like(article.id)}><IoIosHeart/>J'aime </button>
+                <button onClick={() => like(article.id)}><IoIosHeart/> </button>
                 {article.nombrelike}
               </div>
               

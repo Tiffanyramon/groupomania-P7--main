@@ -1,6 +1,5 @@
 
 import'../styles/header.css';
-import'../styles/compte.css';
 import'../styles/connexion.css';
 import'../styles/forum.css';
 import'../styles/inscription.css';

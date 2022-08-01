@@ -7,7 +7,7 @@ exports.createCommentaire = (req, res, next) => {
   db.query("insert into commentaire set message=?, imageurl=?",[ message, imageurl],function(err,result){
    if(err){
      console.log(err)
-     return res.status(400).json({ erro: "impsooble de creer l'article"})
+     return res.status(400).json({ erro: "impossible de creer l'article"})
    }
    return res.status(201).json ({message: "article cree"})
   })
