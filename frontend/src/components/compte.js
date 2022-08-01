@@ -17,10 +17,14 @@ function Compte(){
    const [isUpdated, setIsUpdated] = useState(false);
    const [currentPost, setCurrentPost] = useState(null);
    const [user, setUser] = useState()
+
    const navigate = useNavigate()
 
 
    useEffect(() => {
+       if(!localStorage.token) {
+        navigate("./login");
+       }
        axios.get("http://localhost:3001/api/user/profil")
        .then((result) =>{
            setUser(result.data.user)
