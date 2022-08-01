@@ -69,7 +69,7 @@ BACKEND :
 - nodemon
 - password-validator
 - path
-- ratelimit
+
 
 FRONTEND :
 
@@ -94,25 +94,28 @@ Ouvrir un premier terminal:
 
 1.cd frontend
 2.npm install 
-3.npm run start
-4.Ouvrir un navigateur sur  http://localhost:3000 seulement 
+3.Confguration du dossier image
+  Crée un dossier image dans frontend/src/components
+4.npm run start
+5.Ouvrir un navigateur sur  http://localhost:3000 seulement 
 
 Ouvrir deuxième terminal:
 
 1.cd backend
 2.npm install
 3.npm install mysql --save
-4.nodemon server
+5.Configuration du fichier .env 
+  Crée un fichier .env à la racine du projet du côté backend mettre la clé de chriffrement de: 
+    - JWT_SECRET
+    - DB_HOST
+    - DB_USER 
+    - DB_PASSWORD
+    - DB_NAME
+5.nodemon server
 
-Exécuter le backend sur http://localhost:3000 seulement
-
-Configuration du fichier .env 
-
-Crée un fichier .env à la racine du projet du côté backend mettre la clé de chriffrement de: 
-
-- JWT_SECRET
+Exécuter le backend sur http://localhost:3001 seulement
 
 
-Confguration du dossier image
 
-Crée un dossier image dans frontend/src/components
+
+

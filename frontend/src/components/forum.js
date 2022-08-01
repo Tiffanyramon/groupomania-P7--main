@@ -12,7 +12,7 @@ import{FaPencilAlt} from 'react-icons/fa';
 import ModifyPost from './ModifyPost';
 import AddPost from './AddPost';
 import Commentaire from './Commentaire';
-
+import {useNavigate} from 'react-router-dom';
 
 function Forum() {
   const [isUpdated, setIsUpdated] = useState(false);
@@ -20,7 +20,13 @@ function Forum() {
   const [articles, setArticles] = useState([]);
   const [user, setUser] = useState();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+
+    if(!localStorage.token) {
+      navigate('./login');
+    }
     axios.get('http://localhost:3001/api/user/profil').then((result) => {
       setUser(result.data.user);
     });

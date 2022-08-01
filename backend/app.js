@@ -4,7 +4,6 @@ const express = require("express");
 const path = require('path');
 const helmet =  require('helmet');
 const cors = require('cors');
-const rateLimit = require('express-rate-limit');
 const app = express();
 //routes
 const articleRoutes = require ("./routes/article.js");
@@ -24,13 +23,6 @@ app.use((req, res, next) => {
     next()
 });
 
-//limiteur
-const apiLimier = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limites de 100 requêtes
-    standardHeaders: true,
-    legacyHeaders: false,
-})
 
 app.use(cors());
 app.use(helmet());

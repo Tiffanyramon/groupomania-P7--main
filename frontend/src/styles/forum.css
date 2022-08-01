@@ -2,7 +2,7 @@
 
 /* Version desktop*/
 body{
-  max-width: auto;
+ min-height: 100vh;
 
 }
 

@@ -83,7 +83,7 @@ const like = (postId) => {
                         {article.nom}-{article.prenom}
                     </div>
                 </header>
-            </div>
+       
             <div className="card-message">
                 <img src={article.imageurl} alt="" />
                 <div className='m'>
@@ -99,12 +99,11 @@ const like = (postId) => {
                <IoIosHeart/>
                 {article.nombrelike}
               </div>
-              
-        
-              
+             
             </footer>
             </div>
-                )
+            </div>
+           )
                
             }):null}
             

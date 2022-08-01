@@ -20,7 +20,7 @@ const ModifyPost = ({ article }) => {
   return (
     <div className="update-post">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea defaultValue={article.message} {...register('message')} />
+        <textarea  defaultValue={article.message} {...register('message')} />
         <input type="file" defaultValue={article.image} {...register('image')} /> 
         <div className="button-container">
           <button className="btn">valider modifiction</button>

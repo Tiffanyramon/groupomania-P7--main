@@ -19,7 +19,7 @@ exports.createArticle = (req, res, next) => {
 
 //obtenir les articles
 exports.getAllArticle = (req, res, next) => {
-  db.query(" select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid ", function(err,result){
+  db.query(" select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid ORDER BY article.date DESC ", function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir les articles"})
