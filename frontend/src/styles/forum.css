@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&display=swap');
 
+@media screen and (max-width: 750px){
+  .partage{
+    height: 235px!important;
+  }
+  .drop-2{
+    z-index: -1!important;
+  }
+  .drop-4{
+   top: 197px!important;
+   right: 269px!important;
+  }
+}
+@media screen and (max-width: 1180px){
+  .drop-2{
+    z-index: -1!important;
+  }
+  .drop-6{
+    z-index: -1!important;
+  }
+  .drop-3{
+    bottom: 890px!important;
+  }
+}
 /* Version desktop*/
 body{
  min-height: 100vh;
