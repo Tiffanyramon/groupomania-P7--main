@@ -5,10 +5,18 @@
   
   .drop-12{
     bottom: opx!important;
+    z-index: -1!important;
+  }
+  .group-title{
+    margin-left: 5px!important; 
   }
 
   .formulairedeux{
     height: 750px!important;
+    margin-top: 20px;
+  }
+  .container{
+    margin-top: 25px!important;
   }
 }
 * {
@@ -33,7 +41,7 @@ body {
 .formulairedeux{
     background: rgba(255, 255, 255, .3);
     padding: 3rem;
-    height: 705px;
+    height: 700px;
     border-radius: 20px;
     border-left: 1px solid rgba(255, 255, 255, .3);
     border-top: 1px solid rgba(255, 255, 255, .3);
@@ -58,7 +66,6 @@ h1{
 
 h2{
   font-size: 14px;
-  margin-top: -50px;
   margin-bottom: 15px;
   font-family: lato;
 }
@@ -97,8 +104,6 @@ input{
     margin-bottom: 20px;
     margin-top: 14px;
     color: black;
-    margin-top: -50px;
-    margin-bottom: 50px;
     font-size: 20px;
 }
 

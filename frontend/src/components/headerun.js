@@ -14,6 +14,7 @@ function Headerun(){
                <div className='group-title'>
                <img className="logo" src={logo}    alt="logo groupomania" ></img>
                </div>
+               <div className= "demarrage">
                <Link to={"/login"}>
                
                   <button> Connexion </button>
@@ -23,8 +24,10 @@ function Headerun(){
               </Link> 
             
                 <button onClick={deconnexion}>
-                     Deconnexion </button>     
+                     Deconnexion </button>   
+            </div>        
           </div>
+
      )
   
 }

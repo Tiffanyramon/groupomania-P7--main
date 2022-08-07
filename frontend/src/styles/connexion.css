@@ -14,16 +14,15 @@
 
   .drop-6{
     z-index: -1!important;
+    bottom: 68px!important;
+    left: 0px!important;
   }
 
   .group-title{
     margin-left: 5px!important; 
   }
 
-  button{
-    margin-right: 20px!important;
-    margin-left: 10px!important;
-  }
+
 
 }
 * {

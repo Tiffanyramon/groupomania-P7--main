@@ -23,10 +23,13 @@ const AddPost = ({ user }) => {
         <div className="exprime">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
+              <div className='vous'>
               <label htmlFor="">Exprimez-vous...</label>
+              </div>
+              <div className='input'>
               <input type="file"{...register('image')}  />
               <input type="text" {...register('message')} />
-              
+              </div>
             </div>
             <div className="publiez">
             <button> Publiez </button>

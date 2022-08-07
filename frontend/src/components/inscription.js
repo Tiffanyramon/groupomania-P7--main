@@ -34,22 +34,30 @@ function Inscription(){
                     <form onSubmit= {handleSubmit(onSubmit)} action="" method="post">
                         <h1>Inscription</h1>
                         <div className="ligne2">
+                         <div className='cate'>
                             <label htmlFor="">Nom</label>
+                            </div>
                             <input type="text" {...register('nom',{pattern :/^([^0-9]*)$/ })}/>
                             {errors.nom && "doit contenir que des lettres"}
                         </div>
                         <div className="ligne2">
+                            <div className='cate'>
                             <label htmlFor="">Prénom</label>
+                            </div>
                             <input type="text"{...register('prenom',{pattern :/^([^0-9]*)$/ })}/>
                             {errors.prenom && "doit contenir que des lettres"}
                         </div>
                         <div className="ligne2">
+                            <div className='cate'>
                             <label htmlFor="">Email</label>
+                            </div>
                             <input type="email" {...register('email',{pattern : /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi })} />
                             {errors.email && "doit contenir une @"}
                         </div>
                         <div className="ligne2">
+                            <div className='cate'>
                             <label htmlFor="">Mot de passe</label>
+                            </div>
                             <input type="password" {...register('password',{pattern :/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/ })} />
                               {errors.password && "doit faire minimun 7 lettres, 1 majuscule, 1 chiffre"}
                         </div>

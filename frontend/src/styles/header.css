@@ -1,3 +1,17 @@
+
+@media screen and (max-width: 750px) {
+    
+.demarrage{
+    display: flex!important;
+    margin-top: -198px!important;
+}
+.logo{
+    margin-left: auto!important;
+}
+.group-hearderzero{
+    display: contents;
+}
+}
 .group-header{
     display: flex;
     justify-content: space-between;
@@ -46,3 +60,6 @@ button{
     border-color: #FFD7D7;
     background-color: #FFD7D7;
 }
+
+
+

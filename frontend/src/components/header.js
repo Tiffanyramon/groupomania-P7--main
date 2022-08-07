@@ -17,7 +17,7 @@ function Header(){
      })
      
      return (
-          <div className='group-header'>
+          <div className='group-headerzero'>
                <div className='group-title'>
                <img className="logo" src={logo}    alt="logo groupomania" ></img>
                </div>
