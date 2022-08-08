@@ -11,6 +11,16 @@
    top: 197px!important;
    right: 269px!important;
   }
+  .card{
+    max-width: 14em!important;
+  }
+  .main{
+    max-width: 27em!important;
+  }
+  .img{
+    width: 348px!important;
+    height: auto!important;
+  }
 }
 @media screen and (max-width: 1180px){
   .drop-2{
@@ -100,23 +110,20 @@ label{
     margin-bottom: 10px;
     font-family: lato;
     font-size: 25px;
+    max-width: 23em;
 }   
 
 .card-message{
-    display: grid;
-    justify-content: center;
-    justify-items: start;
     margin-top: 30px;
     margin-bottom: 30px;
+    
 }
 
 .supprimer{
   display: contents;
   justify-content: space-between;
 }
-.TiTrash{
-  font-size: 30px;
-}
+
 
 .like{
     display: flex;
@@ -130,7 +137,7 @@ label{
   font-weight: 900;
 }
 img{
-  width: 450px;
+  width: 566px;
   height: auto;
 }
 
