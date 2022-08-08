@@ -4,7 +4,7 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import {useNavigate, Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import ModifyPost from './ModifyPost';
+import ModifyPost from './modifyPost';
 
 import {IoIosHeart} from 'react-icons/io';
 

@@ -19,7 +19,7 @@ exports.createArticle = (req, res, next) => {
 
 //obtenir les articles
 exports.getAllArticle = (req, res, next) => {
-  db.query(" select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid ", function(err,result){
+  db.query(" select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid order by article.date desc ", function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir les articles"})
@@ -32,7 +32,7 @@ exports.getAllArticle = (req, res, next) => {
 //obtenir article user
 exports.getAllArticleUser = (req, res, next) => {
   const id = req.params.id 
-  db.query("select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid  where article.userid = ? ",[id] ,function(err,result){
+  db.query("select article.id, article.message, article.imageurl,article.userid, article.nombrelike, article.userlike , user.nom, user.prenom from article inner join user on user.id = article.userid  where article.userid = ? order by article.date desc ",[id] ,function(err,result){
     if(err){
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir les articles"})

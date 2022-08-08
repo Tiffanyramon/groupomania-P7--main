@@ -17,9 +17,9 @@
   .main{
     max-width: 27em!important;
   }
-  .img{
+  img{
     width: 348px!important;
-    height: auto!important;
+  
   }
 }
 @media screen and (max-width: 1180px){

@@ -9,8 +9,8 @@ import {TiTrash} from 'react-icons/ti';
 import{FaPencilAlt} from 'react-icons/fa';
 
 
-import ModifyPost from './ModifyPost';
-import AddPost from './AddPost';
+import ModifyPost from './modifyPost';
+import AddPost from './addPost';
 import Commentaire from './Commentaire';
 import {useNavigate} from 'react-router-dom';
 
