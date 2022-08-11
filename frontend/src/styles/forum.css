@@ -2,37 +2,21 @@
 
 @media screen and (max-width: 750px){
   .partage{
-    height: 235px!important;
+    height:auto!important;
   }
-  .drop-2{
-    z-index: -1!important;
-  }
-  .drop-4{
-   top: 197px!important;
-   right: 269px!important;
-  }
+ 
+  
   .card{
-    max-width: 14em!important;
+    max-width: auto!important;
   }
-  .main{
-    max-width: 27em!important;
-  }
+ 
+
   img{
     width: 348px!important;
   
   }
 }
-@media screen and (max-width: 1180px){
-  .drop-2{
-    z-index: -1!important;
-  }
-  .drop-6{
-    z-index: -1!important;
-  }
-  .drop-3{
-    bottom: 890px!important;
-  }
-}
+
 /* Version desktop*/
 body{
  min-height: 100vh;
@@ -141,52 +125,4 @@ img{
   height: auto;
 }
 
-.textarea{
-  margin-top: 30px;
-}
-.drop {
-    background: rgba(255, 255, 255, .3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    box-shadow: 10px 10px 60px -8px rgba(0,0,0,0.2);
-    position: absolute;
-    transition: all 0.2s ease;
-  }
 
-  .drop-1 {
-    height: 80px; width: 80px;
-    top: 20px; left: 215px;
-    z-index: -1;
-  }
-  
-  .drop-2 {
-    height: 80px; width: 80px;
-    bottom: 70px; right: 50px;
-  }
-  
-  .drop-3 {
-    height: 110px; width: 110px;
-    bottom: 970px; right: 362px;
-    z-index: -1;
-  }
-  
-  .drop-4 {
-    height: 80px; width: 80px;
-    top: 80px; right: 170px;
-    z-index: -1;
-  }
-  
-  .drop-5 {
-    height: 60px; width: 60px;
-    bottom: 170px; left: 90px;
-    z-index: -1;
-  }
-
-  .drop-6 {
-    height: 130px; width: 130px;
-    bottom: -68px; left: -39px;
-   
-  }

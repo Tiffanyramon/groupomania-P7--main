@@ -2,20 +2,20 @@ import '../styles/forum.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../layouts/layout';
-import {useNavigate, Link} from 'react-router-dom';
+import {useNavigate, } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ModifyPost from './modifyPost';
 
 import {IoIosHeart} from 'react-icons/io';
 
 
-function Compte(){
+function Compte(){ 
 
  
 
    const [articles, setArticles] = useState([])
-   const [isUpdated, setIsUpdated] = useState(false);
-   const [currentPost, setCurrentPost] = useState(null);
+   const [isUpdated] = useState(false);
+ const [currentPost ] = useState(null);
    const [user, setUser] = useState()
 
    const navigate = useNavigate()

@@ -2,7 +2,7 @@ import '../styles/forum.css';
 import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
-import { render } from 'react-dom';
+
 
 import {IoIosHeart} from 'react-icons/io';
 import {TiTrash} from 'react-icons/ti';
@@ -11,7 +11,6 @@ import{FaPencilAlt} from 'react-icons/fa';
 
 import ModifyPost from './modifyPost';
 import AddPost from './addPost';
-import Commentaire from './Commentaire';
 import {useNavigate} from 'react-router-dom';
 
 function Forum() {
@@ -115,14 +114,6 @@ function Forum() {
             </footer>
             </div>
             </div>
-            
-             <div className="drop drop-1"></div>
-             <div className="drop drop-2"></div>
-             <div className="drop drop-3"></div>
-             <div className="drop drop-4"></div>
-             <div className="drop drop-5"></div>
-             <div className="drop drop-6"></div>
-
           </div>
         );
       
