@@ -16,10 +16,6 @@ import {
 } from "react-router-dom";
 
 
-
-
-
-
 function App() {
   axios.defaults.headers.common.Authorization = "Bearer " + localStorage.token
   return (

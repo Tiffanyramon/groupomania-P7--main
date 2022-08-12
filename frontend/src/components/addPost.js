@@ -9,6 +9,7 @@ const AddPost = ({ user }) => {
     formdata.append('message', data.message);
     formdata.append('image', data.image[0]);
     formdata.append('userid', user.id);
+    
     axios
       .post('http://localhost:3001/api/article', formdata)
       .then((result) => {

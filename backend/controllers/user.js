@@ -13,6 +13,7 @@ exports.signUp = (req, res, next) => {
     const prenom = req.body.prenom 
     bcrypt.hash(req.body.password, 10)
     .then(hash =>{ 
+      // création d'un utilisateur avec nom, prenom,email, mdp hash
         db.query("insert into user set  nom =?, prenom =?, email =?, password= ?",[nom,prenom,email,hash],function (err, result){
             if (err) {
                 console.log(err)
@@ -34,19 +35,20 @@ exports.signUp = (req, res, next) => {
 exports.login =(req, res, next) => {
     
     const email = req.body.email
+    // identifiation avec email  avec le token fait à la création du compte 
     db.query("select * from user where email=?", [email], function (err, result){
         if (err||!result.length) {
             
             return res.status(401).json({ error: 'Utilisateur non trouvé'}) 
         }
          
-        
-        bcrypt.compare(req.body.password, result[0].password) // comparateur de mdp 
+        // compare le mdp 
+        bcrypt.compare(req.body.password, result[0].password) 
         .then(valid => {
             if(!valid){
-                return res.status(401).json({ error: 'Mot de passe incorret'}); // mauvais mdp 
+                return res.status(401).json({ error: 'Mot de passe incorret'}); 
             }
-            // Si bon token identique et session ouverte
+            // Si token identique la session ouverte
             res.status(200).json({
                 userId: result[0].id, 
                 token: jwt.sign(
@@ -62,6 +64,7 @@ exports.login =(req, res, next) => {
 
     //obtenir les users
 exports.getAllUser = (req, res, next) => {
+  // obtenir tout les utilisateur de la table
     db.query(" select * from user", function(err,result){
       if(err){
         console.log(err)
@@ -74,6 +77,7 @@ exports.getAllUser = (req, res, next) => {
   // obtenir un user 
   exports.getOneUser = (req, res, next) => {
       const id = req.auth.userId
+      // selectionner un utilisateur avec son identifiant 
    db.query("select * from user where id = ?", [id],function(err,result){
     if(err){
       console.log(err)
@@ -117,12 +121,13 @@ exports.getAllUser = (req, res, next) => {
     //supprimer user
     exports.deleteUser = (req, res, next) => {
    const id = req.auth.userId 
+  //  selection de l'utilisateur par l'id
     db.query("select * from user where `id` = ? ", [id],function (err, result){
       if(err){
         console.log(err)
         return res.status(400).json({ error:"impossible d'avoir l'utilisateur"})
       }
-     
+    //  supprmier le compte par l'id avec la fonction delete
       db.query("delete from user where `id` = ? ", [id],function (err, result){
         if(err){
           console.log(err)

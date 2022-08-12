@@ -1,4 +1,4 @@
-
+/* version mobile */
 @media screen and (max-width: 750px) {
     
 .demarrage{
@@ -13,6 +13,7 @@
     
 }
 }
+/* version desktop */
 .group-header{
     display: flex;
     justify-content: space-between;
