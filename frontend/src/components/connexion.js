@@ -2,7 +2,7 @@ import '../styles/connexion.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../layouts/layoutun';
-import {Link,useNavigate } from 'react-router-dom';
+import {Link,useNavigate } from 'react-router-dom'; 
 import { useEffect} from 'react';
 
 
@@ -13,7 +13,8 @@ function Connexion(){
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-
+        
+// connexion faite si le token est vérifié 
         axios.post("http://localhost:3001/api/user/login", data)
         .then((result) => {
             localStorage.token =result.data.token
@@ -46,7 +47,8 @@ function Connexion(){
                  <button>Connexion</button>
                 
                  <form  onSubmit={handleSubmit(onSubmit)} action="" method="post"></form>
-                  
+
+                   {/* navigation au components inscription */}
                      <Link to={"/inscription"}>
                      <a>Nouveau?<button>Inscrivez-vous!</button></a>
                      </Link>

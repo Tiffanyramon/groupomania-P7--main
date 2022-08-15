@@ -4,7 +4,7 @@ const userCtrl = require('../controllers/user.js');
 const password = require ('../middleware/password.js');
 const user = require('../middleware/user.js');
 
-//route créa compte 
+//route création compte 
 router.post('/signup', password,userCtrl.signUp);
 
 //route identification

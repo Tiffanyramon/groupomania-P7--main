@@ -19,6 +19,8 @@ const ModifyPost = ({ article }) => {
 
   return (
     <div className="update-post">
+      {/* si l'image ou le texte n'est pas modifié la valeur par défault sera celle entrée par l'utilisateur à la création du post  */}
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea  defaultValue={article.message} {...register('message')} />
         <input type="file" defaultValue={article.image} {...register('image')} /> 

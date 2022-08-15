@@ -1,4 +1,6 @@
+// rect-hook_form prend en charge la vadiation du formulaire
 import { useForm } from 'react-hook-form';
+// axios prend en charge les requêtes et reçois les réponses du serveur transforme et convertit en JSON
 import axios from 'axios';
 
 const AddPost = ({ user }) => {
@@ -11,7 +13,9 @@ const AddPost = ({ user }) => {
     formdata.append('userid', user.id);
     
     axios
+       // .post envoie l'article crée 
       .post('http://localhost:3001/api/article', formdata)
+      // .then retourne le resultat avec window.location.reload
       .then((result) => {
          window.location.reload();
       })
@@ -22,6 +26,7 @@ const AddPost = ({ user }) => {
     <div className="main">
       <div className="partage">
         <div className="exprime">
+         {/* formulaire */}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <div className='vous'>

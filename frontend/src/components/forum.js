@@ -3,14 +3,15 @@ import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
 
-
-import {IoIosHeart} from 'react-icons/io';
+// impot icons
+import {IoIosHeart} from 'react-icons/io'; 
 import {TiTrash} from 'react-icons/ti';
 import{FaPencilAlt} from 'react-icons/fa';
 
-
+// import components 
 import ModifyPost from './modifyPost';
 import AddPost from './addPost';
+
 import {useNavigate} from 'react-router-dom';
 
 function Forum() {
@@ -22,7 +23,7 @@ function Forum() {
   const navigate = useNavigate();
 
   useEffect(() => {
-
+// page affiché si token sinon retour connexion
     if(!localStorage.token) {
       navigate('./login');
     }
@@ -32,7 +33,7 @@ function Forum() {
 
     getPosts();
   }, []);
-
+//  constante pour afficher les posts créés 
   const getPosts = () => {
     axios
       .get('http://localhost:3001/api/article')
@@ -41,7 +42,7 @@ function Forum() {
       })
       .catch((error) => console.log(error));
   };
-
+// constante pour afficher les likes sur chaque posts 
   const like = (postId) => {
     axios
       .post('http://localhost:3001/api/article/' + postId + '/like')
@@ -49,7 +50,7 @@ function Forum() {
         getPosts();
       });
   };
-
+// constante pour supprimer un post par son utilisateur 
   const supprimer = (postId) => {
     axios
     .delete('http://localhost:3001/api/article/' + postId )
@@ -64,7 +65,7 @@ function Forum() {
     <Layout>
       
       <AddPost user={user} />
-    
+    {/* post retourné par la méthode map() sous forme de tableau */}
       {articles.map((article) => {
         return (
           <div>
@@ -86,7 +87,7 @@ function Forum() {
                 )}
               </div>
               
-
+              {/* l'admin et l'utilisateur puissent supprimer le post */}
               {(user.admin || user.id === article.userid ) && (
                 <div className="button-container">
                   <div>
@@ -102,7 +103,7 @@ function Forum() {
                   </div>
                 </div>
               )}
-            
+             {/* pour aimé ou non un commentaire au clique */}
             <footer className="card-footer">
               <div className="like">
                 <button onClick={() => like(article.id)}><IoIosHeart/> </button>

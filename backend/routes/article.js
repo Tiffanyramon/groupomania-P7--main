@@ -6,24 +6,25 @@ const multer = require('../middleware/multer-config.js');
 const articleCtrl = require('../controllers/article.js');
 const likeCtrl = require('../controllers/like.js');
 
-//route créa article
+//route création article
 router.post('/', user, multer,articleCtrl.createArticle);
 
 //route ensemble article
 router.get('/' ,user,articleCtrl.getAllArticle);
 
-//route un article
+//route d'un article
 router.get('/:id',user, articleCtrl.getOneArticle);
 
-//route modification article
+//route modification d'article
 router.put('/:id',user,multer, articleCtrl.modifyArticle);
 
-//route suppression article
+//route suppression d'article
 router.delete('/:id',user, articleCtrl.deleteArticle);
 
-//route aime 
+//route mention j'aime 
 router.post('/:postId/like', user, likeCtrl.likeArticle);
 
+// route ensemble article de l'utilisateur 
 router.get('/all/:id', user, articleCtrl.getAllArticleUser);
 
 module.exports = router; 

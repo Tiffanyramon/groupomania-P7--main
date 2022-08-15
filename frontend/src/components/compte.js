@@ -1,30 +1,30 @@
-import '../styles/forum.css';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Layout from '../layouts/layout';
-import {useNavigate, } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import ModifyPost from './modifyPost';
+import '../styles/forum.css'; 
+import { useForm } from 'react-hook-form'; //formulaire 
+import axios from 'axios'; // relation
+import Layout from '../layouts/layout'; // composant
+import {useNavigate, } from 'react-router-dom'; // navigation 
+import { useEffect, useState } from 'react'; // déclencher une fonction, fonction paramètre
+import ModifyPost from './modifyPost'; 
 
-import {IoIosHeart} from 'react-icons/io';
+import {IoIosHeart} from 'react-icons/io'; // icons
 
 
 function Compte(){ 
-
- 
-
+// ?? (constante à déclarer pour utiliser usestate)
    const [articles, setArticles] = useState([])
    const [isUpdated] = useState(false);
- const [currentPost ] = useState(null);
+   const [currentPost ] = useState(null);
    const [user, setUser] = useState()
 
    const navigate = useNavigate()
 
 
    useEffect(() => {
+    // connexion avec le token pour avoir la page sinon revoie connexion 
        if(!localStorage.token) {
         navigate("./login");
        }
+      //revoie le profil de l'utilisateur + les articles créés par lui
        axios.get("http://localhost:3001/api/user/profil")
        .then((result) =>{
            setUser(result.data.user)
@@ -47,10 +47,11 @@ const onSubmit =(data) => {
     })
     .catch((error) => console.log(error))
 }
+// retour des j'aimes
 const like = (postId) => {
     axios.post("http://localhost:3001/api/article/"+ postId +"/like")
    } 
-
+// suppresion de l'utilisateur une fois supprimé retour à la page connexion 
    const supprimer = (userId) => {
     axios
     .delete('http://localhost:3001/api/user/' )
@@ -70,6 +71,7 @@ const like = (postId) => {
                 <div className="button-container">
                   <div>
                     <button
+                    // suppression au clique 
                       onClick={() => { supprimer()}} >
                      Supprimer compte
                     </button>
@@ -77,7 +79,7 @@ const like = (postId) => {
                 </div>
             
             </div>
-            
+            {/* pour aficher les posts  */}
             {articles.length ? articles.map(article=>{
                 return(
                     <div>
