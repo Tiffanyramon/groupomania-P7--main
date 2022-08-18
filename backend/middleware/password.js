@@ -1,5 +1,5 @@
 const passwordValidator = require('password-validator');
-// schema pour valider un mdp
+// schéma pour la création du mot de passe 
 var schema = new passwordValidator();
 
 schema

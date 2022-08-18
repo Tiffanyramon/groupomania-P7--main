@@ -6,6 +6,7 @@ import axios from 'axios';
 const AddPost = ({ user }) => {
   const { register, handleSubmit } = useForm();
 
+  // formdata utilision de l'image 
   const onSubmit = (data) => {
     const formdata = new FormData();
     formdata.append('message', data.message);

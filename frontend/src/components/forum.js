@@ -27,12 +27,13 @@ function Forum() {
     if(!localStorage.token) {
       navigate('./login');
     }
+    // recuperer les données 
     axios.get('http://localhost:3001/api/user/profil').then((result) => {
       setUser(result.data.user);
     });
 
     getPosts();
-  }, []);
+  }, [navigate]);
 //  constante pour afficher les posts créés 
   const getPosts = () => {
     axios
@@ -42,6 +43,7 @@ function Forum() {
       })
       .catch((error) => console.log(error));
   };
+  
 // constante pour afficher les likes sur chaque posts 
   const like = (postId) => {
     axios
@@ -68,7 +70,7 @@ function Forum() {
     {/* post retourné par la méthode map() sous forme de tableau */}
       {articles.map((article) => {
         return (
-          <div>
+          <div key={article.id}>
             <div className='post'>
             <div className="card">
               <header className="card-header">

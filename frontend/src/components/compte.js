@@ -1,5 +1,4 @@
 import '../styles/forum.css'; 
-import { useForm } from 'react-hook-form'; //formulaire 
 import axios from 'axios'; // relation
 import Layout from '../layouts/layout'; // composant
 import {useNavigate, } from 'react-router-dom'; // navigation 
@@ -10,7 +9,7 @@ import {IoIosHeart} from 'react-icons/io'; // icons
 
 
 function Compte(){ 
-// ?? (constante à déclarer pour utiliser usestate)
+//  constante à déclarer pour utiliser usestate
    const [articles, setArticles] = useState([])
    const [isUpdated] = useState(false);
    const [currentPost ] = useState(null);
@@ -35,22 +34,10 @@ function Compte(){
            .catch((error) => console.log(error))
        })
        }
-       ,[])  
-   
-const { register,handleSubmit } = useForm();
+       ,[navigate])  
+ 
 
-const onSubmit =(data) => {
 
-    axios.post("http://localhost:3001/api/article", {...data,userid:user.id})
-    .then((result)=> {
-        window.location.reload()
-    })
-    .catch((error) => console.log(error))
-}
-// retour des j'aimes
-const like = (postId) => {
-    axios.post("http://localhost:3001/api/article/"+ postId +"/like")
-   } 
 // suppresion de l'utilisateur une fois supprimé retour à la page connexion 
    const supprimer = (userId) => {
     axios
@@ -82,7 +69,7 @@ const like = (postId) => {
             {/* pour aficher les posts  */}
             {articles.length ? articles.map(article=>{
                 return(
-                    <div>
+                    <div key={article.id}>
             <div className='card'>
                 <header className='card-header'>
                     <div className='card-title'>

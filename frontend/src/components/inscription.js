@@ -1,8 +1,8 @@
 import '../styles/inscription.css';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Layout from '../layouts/layoutun';
-import {useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';// rect-hook_form prend en charge la vadiation du formulaire
+import axios from 'axios';// axios prend en charge les requêtes et reçois les réponses du serveur transforme et convertit en JSON
+import Layout from '../layouts/layoutun';// composant
+import {useNavigate } from 'react-router-dom';// navigation 
 
 function Inscription(){
 
@@ -11,6 +11,7 @@ function Inscription(){
     const { register, handleSubmit,formState: {errors} } = useForm();
 
     const onSubmit = (data) => {
+        // .post envoie l'utilisateur crée 
         axios.post("http://localhost:3001/api/user/signup", data)
         .then((result) => {
             axios.post("http://localhost:3001/api/user/login",data)
@@ -29,7 +30,7 @@ function Inscription(){
     return (
         <Layout>
 
-            <div classNam= "container">
+            <div className= "container">
                 < div className="formulairedeux">
                     <form onSubmit= {handleSubmit(onSubmit)} action="" method="post">
                         <h1>Inscription</h1>
@@ -67,12 +68,12 @@ function Inscription(){
             
                 </div>
             
-  <div class="drop drop-7"></div>
-  <div class="drop drop-8"></div>
-  <div class="drop drop-9"></div>
-  <div class="drop drop-10"></div>
-  <div class="drop drop-11"></div>
-  <div class="drop drop-12"></div>
+  <div className="drop drop-7"></div>
+  <div className="drop drop-8"></div>
+  <div className="drop drop-9"></div>
+  <div className="drop drop-10"></div>
+  <div className="drop drop-11"></div>
+  <div className="drop drop-12"></div>
             </div>
 
         </Layout>

@@ -12,7 +12,7 @@ exports.likeArticle = async (req, res, next) => {
       console.log(err)
       return res.status(400).json({ error:"impossible d'avoir l'article'"})
     }
-    // recupere le nombre le like , aout ou suppression
+    // recupere le nombre le like , ajout ou suppression
     const post = result[0]
     const recupuserLike = JSON.parse(post.userlike)
     let userlike = []
@@ -32,7 +32,7 @@ exports.likeArticle = async (req, res, next) => {
     }
 
     userlike = JSON.stringify(userlike)
-  //  recupération du nombre de like sur le post 
+  //  mise à jour du nombre de like sur le post prend en compte l'id de l'utilisateur 
      db.query("update article set nombrelike=?, userlike=? where id=?", [ nombrelike, userlike, postId ],function(err,result){
       if(err){
         console.log(err)

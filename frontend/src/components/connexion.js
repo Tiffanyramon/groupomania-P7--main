@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Layout from '../layouts/layoutun';
 import {Link,useNavigate } from 'react-router-dom'; 
-import { useEffect} from 'react';
+
 
 
 function Connexion(){
@@ -43,24 +43,23 @@ function Connexion(){
                      </div>
                      <input type="password" {...register('password')} />
                  </div>
-                 
+                 <div>
                  <button>Connexion</button>
-                
-                 <form  onSubmit={handleSubmit(onSubmit)} action="" method="post"></form>
+                 </div>
 
                    {/* navigation au components inscription */}
                      <Link to={"/inscription"}>
-                     <a>Nouveau?<button>Inscrivez-vous!</button></a>
+                     <span>Nouveau?<button>Inscrivez-vous!</button></span>
                      </Link>
                  </form>
              </div>
 
-  <div class="drop drop-1"></div>
-  <div class="drop drop-2"></div> 
-  <div class="drop drop-3"></div>
-  <div class="drop drop-4"></div>
-  <div class="drop drop-5"></div>
-  <div class="drop drop-6"></div>
+  <div className="drop drop-1"></div>
+  <div className="drop drop-2"></div> 
+  <div className="drop drop-3"></div>
+  <div className="drop drop-4"></div>
+  <div className="drop drop-5"></div>
+  <div className="drop drop-6"></div>
         </div>
     </Layout>
         

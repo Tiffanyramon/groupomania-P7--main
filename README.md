@@ -41,7 +41,7 @@ Identité graphique
 - Police Lato
 - Couleur : - Primaire #FD2D01
             - Secondaire #FFD7D7
-            - Tertiare #4E5166
+            
 
 
 
@@ -61,7 +61,6 @@ BACKEND :
 - cors
 - dotenv
 - express
-- express-rate-limite
 - helmet
 - jsonwebtoken
 - multer

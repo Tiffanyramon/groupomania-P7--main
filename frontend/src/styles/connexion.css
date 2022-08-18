@@ -65,18 +65,18 @@ h1{
     font-size: 50px;
 }
 
-a{
+span{
     color: #DDD;
     text-decoration: none;
     font-size: 20px;
     transition: all .3s;
 }
 
-a:hover{
+span:hover{
     text-shadow: 2px 2px 6px rgba(0,0,0);
 }
 
-a:active {
+span:active {
     text-shadow: none;
 }
 

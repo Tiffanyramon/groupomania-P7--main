@@ -27,4 +27,7 @@ router.post('/:postId/like', user, likeCtrl.likeArticle);
 // route ensemble article de l'utilisateur 
 router.get('/all/:id', user, articleCtrl.getAllArticleUser);
 
+
+// ajout de user pour plus de sécurité
+// ajout de multer pour les images 
 module.exports = router; 

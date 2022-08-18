@@ -5,7 +5,7 @@ import logo from '../images/icon-left-font-monochrome-white.png'
 
 function Header(){
      const navigate=useNavigate()
-     const title ='Groupomania'
+
 
      // retire le token du local stotage
      function deconnexion(){
