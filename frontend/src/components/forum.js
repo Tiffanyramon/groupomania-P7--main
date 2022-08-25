@@ -89,7 +89,7 @@ function Forum() {
                 )}
               </div>
               
-              {/* l'admin et l'utilisateur puissent supprimer le post */}
+              {/* l'admin et l'utilisateur puissent modifier/supprimer le post */}
               {(user.admin || user.id === article.userid ) && (
                 <div className="button-container">
                   <div>

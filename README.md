@@ -100,17 +100,17 @@ Ouvrir un premier terminal:
 
 Ouvrir deuxième terminal:
 
-1.cd backend
-2.npm install
-3.npm install mysql --save
-5.Configuration du fichier .env 
+1. cd backend
+2. npm install
+3. npm install mysql --save
+4. Configuration du fichier .env 
   Crée un fichier .env à la racine du projet du côté backend mettre la clé de chriffrement de: 
     - JWT_SECRET
     - DB_HOST
     - DB_USER 
     - DB_PASSWORD
     - DB_NAME
-5.nodemon server
+5. nodemon server
 
 Exécuter le backend sur http://localhost:3001 seulement
 
