@@ -24,7 +24,7 @@ Ouvrir un  terminal:
 1. cd frontend
 2. npm install 
 3. Confguration du dossier image
-  Crée un dossier image dans frontend/src/components
+   Crée un dossier image dans frontend/src/components
 4. npm run start
 5. Ouvrir un navigateur sur  http://localhost:3000 seulement 
 
