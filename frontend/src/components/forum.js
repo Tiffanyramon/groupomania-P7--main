@@ -2,6 +2,7 @@ import '../styles/forum.css';
 import axios from 'axios';
 import Layout from '../layouts/layout';
 import { useEffect, useState } from 'react';
+import { confirmAlert } from "react-confirm-alert";
 
 // impot icons
 import {IoIosHeart} from 'react-icons/io'; 
@@ -43,6 +44,24 @@ function Forum() {
       })
       .catch((error) => console.log(error));
   };
+
+   
+  const submit = (postId) => {
+    confirmAlert({
+         title: ' supprimer',
+         message: '',
+         buttons: [
+              {
+                   label: 'oui',
+                   onClick: () => supprimer (postId)
+              },
+              {
+                   label: 'non',
+                   onClick: () => null
+              }
+         ]
+    });
+};
   
 // constante pour afficher les likes sur chaque posts 
   const like = (postId) => {
@@ -100,7 +119,7 @@ function Forum() {
                       }}
                     ><FaPencilAlt/></button>
                     <div className="supprimer">
-                <button onClick={() => supprimer(article.id)}><TiTrash/></button>
+                <button onClick={() => submit(article.id)}><TiTrash/></button>
               </div>
                   </div>
                 </div>

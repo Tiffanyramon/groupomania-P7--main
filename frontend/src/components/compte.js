@@ -4,7 +4,7 @@ import Layout from '../layouts/layout'; // composant
 import {useNavigate, } from 'react-router-dom'; // navigation 
 import { useEffect, useState } from 'react'; // déclencher une fonction, fonction paramètre
 import ModifyPost from './modifyPost'; 
-
+import { confirmAlert } from "react-confirm-alert";
 import {IoIosHeart} from 'react-icons/io'; // icons
 
 
@@ -36,7 +36,22 @@ function Compte(){
        }
        ,[navigate])  
  
-
+       const submit = (userId) => {
+        confirmAlert({
+             title: ' supprimer',
+             message: '',
+             buttons: [
+                  {
+                       label: 'oui',
+                       onClick: () => supprimer ()
+                  },
+                  {
+                       label: 'non',
+                       onClick: () => null
+                  }
+             ]
+        });
+    };
 
 // suppresion de l'utilisateur une fois supprimé retour à la page connexion 
    const supprimer = (userId) => {
@@ -59,7 +74,7 @@ function Compte(){
                   <div>
                     <button
                     // suppression au clique 
-                      onClick={() => { supprimer()}} >
+                      onClick={() => { submit()}} >
                      Supprimer compte
                     </button>
                   </div>
@@ -73,7 +88,7 @@ function Compte(){
             <div className='card'>
                 <header className='card-header'>
                     <div className='card-title'>
-                        {article.nom}-{article.prenom}
+                        {article.nom} {article.prenom}
                     </div>
                 </header>
        

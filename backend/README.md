@@ -33,6 +33,7 @@ Ouvrir un terminal:
     - DB_USER 
     - DB_PASSWORD
     - DB_NAME
+    - DB_PORT
 5. nodemon server
 
 Exécuter le backend sur http://localhost:3001 seulement
