@@ -31,6 +31,9 @@ function Forum() {
     // recuperer les données 
     axios.get('http://localhost:3001/api/user/profil').then((result) => {
       setUser(result.data.user);
+    })
+    .catch(() => {
+      navigate('/login');
     });
 
     getPosts();
