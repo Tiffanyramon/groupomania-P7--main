@@ -113,6 +113,9 @@ Ouvrir deuxième terminal:
     - DB_PORT 
 5. nodemon server
 
+
+Importantion de la base de données 
+
 Exécuter le backend sur http://localhost:3001 seulement
 
 
